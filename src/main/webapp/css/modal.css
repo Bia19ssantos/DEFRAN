@@ -1,0 +1,224 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 25/09/2023, 16:43:53
+    Author     : DEFRAN-4
+*/
+
+/* Estilo para o modal */
+.modal {
+    /* Remova a propriedade display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Estilo para os botões no modal */
+button {
+    margin: 5px;
+}
+
+
+/* Estilo para o modal */
+.modal1 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo para o conteúdo do modal */
+.modal-content1 {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid yellow;
+    width: 80%;
+    text-align: center;
+}
+
+/* Estilo para o modal */
+.modalSave {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Estilo para o conteúdo do modal */
+.modal-contentS {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid green;
+    width: 80%;
+    text-align: center;
+}
+
+.btnFechar {
+    background-color: red;
+    color: white;
+    border: 1px solid white; /* Remova a borda do botão */
+    font-size: 14px; 
+    height: 33px;
+    padding: 5px 10px;
+}
+
+#pdfIframe {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+.btn {
+    padding: 10px 20px; /* Ajuste conforme necessário */
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+.align-right {
+    text-align: right;
+}
+
+.btnAddLinga{
+    background-color: #3eb26b; /* Cor de fundo do botão */
+    border: #ffffff;
+    padding: 5px 10px; /* Espaçamento interno do botão */
+    color: #ffffff ; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-remover1{
+    background-color: #ffffff;
+    border: 1px solid red;
+}
+.modalS {
+    border: 1px solid #14c74f; 
+}
+.btn-remover1 img {
+    width: 20px; /* Largura da imagem */
+    height: 20px; /* Altura da imagem */
+
+}
+.img-linga{
+    width: 60px; /* Largura da imagem */
+    height: 50px; /* Altura da imagem */
+}
+.btnCalc{
+    background-color: #ffffff; /* Cor de fundo do botão */
+    border: 1px solid #47859e; /* Remova a borda do botão */
+    padding: 0; /* Remover qualquer preenchimento interno */
+    background: url('assets/icons/calculator.gif') no-repeat center center; /* Definir a imagem como fundo e centralizá-la */
+    background-size: cover; /* Para dimensionar a imagem corretamente */
+    color: #3eb26b; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnCalc img {
+    width: 30px; /* Largura da imagem */
+    height: 30px; /* Altura da imagem */
+}
+
+.btnAdd {
+    background-color: #ffffff; /* Cor de fundo do botão */
+    border: 1px solid #3eb26b; /* Remova a borda do botão */
+    padding: 4px 24px; /* Espaçamento interno do botão */
+    color: #3eb26b; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+.btnAdd:hover {
+    background-color: #3eb26b;
+    color: #14c74f;
+    border: 1px solid #ffffff;
+}
+
+.table-container {
+    max-height: 300px; /* Defina a altura máxima desejada */
+    overflow-y: auto;
+}
+.iconEstoque{
+    width: 30px; /* Largura da imagem */
+    height: 30px; /* Altura da imagem */
+}
+
+.logo-modal{
+    width: 300px; /* Defina a largura desejada para a imagem */
+    height: 150px; /* Defina a altura desejada para a imagem */
+    margin-right: 10px;
+}
+.imagem-modal {
+    width: 30px; /* Defina a largura desejada para a imagem */
+    height: 30px; /* Defina a altura desejada para a imagem */
+    margin-right: 10px; /* Espaçamento à direita da imagem (pode ser ajustado conforme necessário) */
+}
+.modalE {
+    border: 1px solid #d60f0f; 
+}
+
+.modalS {
+    border: 1px solid #14c74f; 
+}
+
+.modalC {
+    border: 1px solid #3666a8; 
+}
+
+.btnOK1 {
+    padding: 4px 16px; /* Ajuste conforme necessário */
+    background-color: #3666a8; /* Cor de fundo do botão */
+    border: 1px solid #ffffff; /* Remova a borda do botão */
+    color: #ffffff; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btnOK1:hover {
+    background-color: #ffffff;
+    color: #0a58ca;
+    border: 1px solid #0a58ca;
+}
+.iconeB{
+    width: 20px; /* Largura da imagem */
+    height: 20px; /* Altura da imagem */
+}

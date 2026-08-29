@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/stylePedido.css">
+
+        <!-- Inclua o arquivo jQuery -->
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <style>
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+            .lista{
+                width: 40px; /* Largura da imagem */
+                height: 40px; /* Altura da imagem */
+            }
+            .ptexto{
+                font-weight: bold;
+                color: #00aec5;
+                font-size: 16px;
+            }
+        </style>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav" style="margin-top: 40px;">
+                            <a class="nav-link collapsed" href="cadastrar" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/menu2.ico" alt="Icone Menu"></div>
+                                Menu Principal
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="Cadastrar" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Cadastrar
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="cadastro_clientes.html">Clientes</a>
+                                            <a class="nav-link" href="register.html">Usuários</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="collapse" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                        Catálogos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="catalogo_gunnebo.html">Gunnebo</a>
+                                            <a class="nav-link" href="catalogo_crosby.html">Crosby</a>
+                                            <a class="nav-link" href="catalogo_pewag8.html">Pewag Grau 8</a>
+                                            <a class="nav-link" href="catalogo_pewag10.html">Pewag Grau 10</a>
+                                            <a class="nav-link" href="catalogo_rud.html">Rud</a>
+                                        </nav>
+                                    </div>
+                                </nav>                         
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Consultas</div>
+                            <a class="nav-link" href="est_gunnebo.html">
+                                <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/estoque.png" alt="Icone Estoque"></div>
+                                Estoque Gunnebo
+                            </a>
+                            <a class="nav-link" href="est_defran.html">
+                                <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/iconEstoque.png" alt="Icone Estoque"></div>
+                                Estoque Defran
+                            </a> 
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Bem Vindo ao Sistema da Defran
+                    </div>
+                </nav>
+            </div>
+
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <p class="ptexto"><img src="assets/icons/lista.gif" class="lista" alt="Descrição da Imagem">
+                                    ORÇAMENTOS</p>
+                            </div>
+                            <!-- ----------------------------------INICIO DOS DADOS NA PAGINA--------------------------------------------->
+
+                            <div style="margin-top: 20px;"></div>
+                            <div class="form-group row">
+                                <label style="margin-left: 60px;" class="col-sm-2 col-form-label">PESQUISAR<span class="text-danger"> *</span></label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <input type="text" id="filtro" class="form-control" placeholder="Filtrar por razão...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" id="btnBuscaOrc" type="button" style="width: 36px; height: 38px;" title="buscaOrc" placeholder=""><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 20px;"></div>
+                            <div class="table-responsive custom-table-responsive">
+                                <table class="datatablesSimple" class="table">
+                                    <thead>
+                                        <tr class="spacer">
+                                            <th scope="col1">Num.Orç</th>
+                                            <th scope="col1">Data</th>
+                                            <th scope="col1">Vendedor</th>
+                                            <th scope="col1">CNPJ</th>
+                                            <th scope="col1">Cliente</th>
+                                            <th scope="col1">Contato</th>
+                                            <th scope="col1">Condição de Pgto</th>
+                                            <th scope="col1">Condição de Transporte</th>
+                                            <th scope="col1">Total Orc.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <!-- Os dados do banco de dados serão carregados aqui dinamicamente -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <p class="ptexto"><img src="assets/icons/lista.gif" class="lista" alt="Descrição da Imagem">
+                                    ITENS DO ORÇAMENTO</p>
+                            </div>
+                            <!-- ----------------------------------INICIO DOS DADOS NA PAGINA--------------------------------------------->
+
+                            <div style="margin-top: 20px;"></div>
+                            <div class="card-body">
+                                <table class="datatablesSimple" class="table-item">
+                                    <thead>
+                                        <tr>
+                                            <th>ITEM</th>
+                                            <th>REFERENCIA</th>
+                                            <th>NCM</th>
+                                            <th>TIPO</th>
+                                            <th>QTDE</th>
+                                            <th>VALOR UNIT.</th>
+                                            <th>TOTAL ITEM</th>
+                                            <th>PRAZO ENTREGA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body-item">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Defran 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Termos &amp; Condições</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script src="js/buscaOrc.js"></script>
+
+    </body>
+</html>

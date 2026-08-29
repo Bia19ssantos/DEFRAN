@@ -1,0 +1,242 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07/08/2023, 15:38:05
+    Author     : DEFRAN-4
+*/
+/* Custom styles for the blue rectangle */
+
+.blue-rectangle {
+    background-color: #0b5394;
+    color: white;
+    display: inline-block;
+    padding: 4px 480px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Other styles for the card header */
+.card-header {
+    display: flex;
+    align-items: center;
+}
+
+.card-header i {
+    margin-right: 8px;
+}
+/* Seletor CSS para a imagem */
+img {
+    width: 140px; /* Define a largura da imagem em pixels */
+    height: auto; /* Mantém a proporção original da imagem */
+}
+.marca-select {
+    margin-bottom: 20px; /* Adapte o valor conforme necessário */
+}
+.custom-btn-size {
+    font-size: 8px; /* Adjust the font size as needed */
+    padding: 2px 4px; /* Adjust the padding as needed */
+}
+
+.selected-row {
+    background-color: #f75633; /* Cor de fundo azul */
+}
+table {
+    width: 100%;
+    border-collapse: collapse; /* Combine adjacent table borders */
+}
+
+th, td {
+    border: 1px solid #dbf4d2; /* Add a white border to table cells */
+    padding: 10px; /* Add padding to the cells for better spacing */
+}
+
+th {
+    background-color: #3666a8;
+    color: white;
+}
+
+.table td {
+    font-size: 10px; /* Reduzindo o tamanho do texto da célula */
+    padding: 0.5rem; /* Reduzindo o espaçamento interno da célula */
+}
+.table th {
+    font-size: 8px; /* Reduzindo o tamanho do texto do cabeçalho */
+    padding: 0.15rem; /* Reduzindo o espaçamento interno do cabeçalho */
+}
+.table td, .table th {
+    border: 1px solid #dee2e6; /* Adicionando borda às células */
+    background-color: #3666a8;
+}
+.table thead th {
+    vertical-align: middle; /* Centralizando o conteúdo do cabeçalho verticalmente */
+}
+
+.p {
+    margin-bottom: 0px;
+    font-size: 12px; 
+    font-weight: bold;
+}
+
+.custom-btn-size {
+    font-size: 4px; /* Adjust the font size as needed */
+    padding: 2px 3px; /* Adjust the padding as needed */
+}
+#table-clientes th,
+#table-clientes td {
+
+    max-width: 50px; /* Defina o tamanho desejado para as células */
+    white-space: nowrap; /* Impede que o conteúdo seja quebrado em várias linhas */
+    overflow: hidden; /* Oculta o conteúdo que ultrapassar o limite da célula */
+    text-overflow: ellipsis; /* Adiciona reticências (...) quando o conteúdo for cortado */
+}
+
+.logos-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoDefran {
+    width: 280px; /* ajuste o tamanho máximo conforme necessário */
+    height: 140px; /* ajuste o tamanho máximo conforme necessário */
+    margin-left: 20px;
+}
+
+.logoGunnebo {
+    width: 200px; /* ajuste o tamanho máximo conforme necessário */
+    height: 90px; /* ajuste o tamanho máximo conforme necessário */
+}
+
+.logo {
+    margin-right: 20px; /* Ajuste a margem conforme necessário */
+}
+
+.card-header i {
+    margin-right: 5px;
+}
+.mensagem {
+    margin-top: 10px;
+    font-weight: bold;
+    display: none; /* Inicialmente, as mensagens são ocultas */
+}
+
+.mensagem.erro {
+    color: red;
+}
+
+.mensagem.sucesso {
+    color: green;
+}
+
+.form-group.row label {
+    margin-top: 1px; /* Ajuste o valor conforme necessário */
+}
+
+.gif {
+    width: 25px; /* ajuste o tamanho máximo conforme necessário */
+    height: 25px; /* ajuste o tamanho máximo conforme necessário */
+}
+
+.btn1 {
+    background-color: #ffffff; /* Cor de fundo do botão */
+    border: 1px solid #3eb26b; /* Remova a borda do botão */
+    padding: 4px 20px; /* Espaçamento interno do botão */
+    color: #3eb26b; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn1:hover {
+    background-color: #b1fca9;
+    color: #218716;
+    border: 1px solid #3eb26b;
+}
+
+.btnExcluir{
+    background-color: #ffffff;
+    border: 1px solid red;
+}
+.btnExcluir img {
+    width: 10px; /* Largura da imagem */
+    height: 10px; /* Altura da imagem */
+
+}
+
+.btnEnviar{
+    background-color: #ffffff; /* Cor de fundo do botão */
+    border: 1px solid #3eb26b; /* Remova a borda do botão */
+    padding: 4px 16px; /* Espaçamento interno do botão */
+    color: #3eb26b; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btnEnviar:hover {
+    background-color: #3eb26b;
+    color: #ffffff;
+    border: 1px solid #3eb26b;
+}
+
+.btnSalvar {
+    background-color: #3eb26b; /* Cor de fundo do botão */
+    border: 1px solid #ffffff;
+    color: #ffffff ; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80px;
+    height: 30px;
+}
+
+.btnSalvar:hover {
+    background-color: #ffffff;
+    color: #3eb26b;
+    border: 1px solid #3eb26b; /* Remova a borda do botão */
+    width: 80px;
+    height: 30px;
+}
+
+.btnAlterar {
+    background-color: #ffffff; /* Cor de fundo do botão */
+    border: 1px solid #3666a8;
+    color: #3666a8 ; /* Cor do texto no botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 80px;
+    height: 30px;
+}
+
+.btnAlterar:hover {
+    background-color: #3666a8;
+    color: #ffffff;
+    border: 1px solid #3666a8; /* Remova a borda do botão */
+    width: 80px;
+    height: 30px;
+}
+
+.btn1 img {
+    width: 20px; /* Largura da imagem */
+    height: 20px; /* Altura da imagem */
+}
+
+.gif-orc {
+    width: 30px; /* Largura da imagem */
+    height: 30px; /* Altura da imagem */
+}
+.btnPDF img {
+    width: 25px; /* Largura da imagem */
+    height: 25px; /* Altura da imagem */
+}
+
+.btnPDF {
+    background-color: #ffffff;
+    color: red;
+    border: 1px solid red; /* Remova a borda do botão */
+}
+.btnPDF:hover {
+    background-color: red;
+    color: white;
+    border: 1px solid #dbf4d2;
+}
+
+

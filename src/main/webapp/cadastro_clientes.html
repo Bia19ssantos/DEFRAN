@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Beatriz">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <style>
+            /* Seletor CSS para a imagem */
+            img {
+                width: 120px; /* Define a largura da imagem em pixels */
+                height: auto; /* Mantém a proporção original da imagem */
+            }
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+            .btnBusca{
+                background-color: #ff0;
+                border: #005cbf;
+                padding: 2px 4px; /* Espaçamento interno do botão */
+                color: #005cbf ; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .btnBusca:hover {
+                background-color: #ffffff;
+                color: #d9b10d;
+                border: 1px solid #d9b10d;
+            }
+            .iconeB{
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+            }
+        </style>
+
+        <!-- Title Page-->
+        <title>Defran - Produtos para Elevação de Cargas</title>
+
+        <!-- Icons font CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/stylePedido.css" rel="stylesheet" />
+        <link href="css/clientes.css" rel="stylesheet" />
+
+        <!-- Include the jQuery Mask Plugin -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="header"></div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-1 py-5 mx-auto">
+                        <div class="card-header">
+                            <div class="p-3 mb-2 bg-primary text-white" style="text-align: center" style="width: 1000px; height: 40px;">Cadastro de Clientes</div>
+                        </div>
+                        <div style="margin-left: 1000px;">
+                            <button type="button" id="btnConsultaOrc" name="btnConsultaOrc" class="btnBusca btn-sm ml-2 float-left">
+                                <img src="assets/icons/busca.ico" class="iconeB" alt="Consultar"><stronger>Consultar</stronger>
+                            </button>
+                        </div>
+                        <div style="margin-top: 20px;"></div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                                <form class="form-card" id="formCliente" method="POST" action="SalvarClienteServlet">
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-4 flex-column d-flex">
+                                            <label class="form-control-label px-4">CNPJ<span id="cnpj-validation-message" class="text-danger"></span></label>
+                                            <div class="d-flex align-items-center">
+                                                <input class="input-cnpj form-control mr-lg-2" type="text" id="cnpj" name="cnpj" placeholder="___._____._____/______-___">
+                                                <button class="btn btn-primary" id="buscaCnpj" type="button" title="buscaCnpj"><i class="fas fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-8 flex-column d-flex"> <label class="form-control-label px-3">RAZÃO SOCIAL<span class="text-danger"> *</span></label>
+                                            <input type="text" id="razao" name="razao" placeholder="Digite a Razão Social"> 
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">CONTATO<span class="text-danger"> *</span></label> 
+                                            <input type="text" id="contato" name="contato" placeholder="Digite o nome do contato"> 
+                                        </div>
+                                        <div class="form-group col-sm-4 flex-column d-flex"><label class="form-control-label px-3">TELEFONE<span id="telefone-validation-message" class="text-danger"></span></label> 
+                                            <input class="input-telefone" type="text" id="telefone" name="telefone" placeholder="(___)______-______"> 
+                                        </div>
+                                        <div class="form-group col-sm-4 flex-column d-flex">
+                                            <label class="form-control-label px-3">CELULAR<span class="text-danger"> *</span></label>
+                                            <input class="input-phone" type="text" id="celular" name="celular" placeholder="(___)_______-_____"" maxlength="15">
+                                            <span id="celular-validation-message" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-8 flex-column d-flex"><label class="form-control-label px-3">EMAIL<span class="text-danger"> *</span></label> 
+                                            <input type="text" id="email" name="email" placeholder="nome@exemplo.com.br"> 
+                                        </div>
+                                        <div class="form-group col-sm-4 flex-column d-flex">
+                                            <label class="form-control-label px-3">CEP<span class="text-danger"> *</span></label>
+                                            <div class="d-flex align-items-center">
+                                                <input class="input-cep form-control mr-lg-2" type="text" id="cep" name="cep" placeholder="__________-______" maxlength="9">
+                                                <button class="btn btn-primary cep-container" id="buscar-cep-button" type="button" title="buscaCep"><i class="fas fa-search"></i></button>
+                                            </div>
+                                            <span id="cep-validation-message" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">    
+                                        <div class="form-group col-sm-5 flex-column d-flex"><label class="form-control-label px-3">CIDADE<span class="text-danger"> *</span></label>
+                                            <input type="text" id="cidade" name="cidade" placeholder="">
+                                        </div>
+
+                                        <div class="form-group col-sm-2 flex-column d-flex"><label class="form-control-label px-3">UF<span class="text-danger"> *</span></label>
+                                            <input type="text" id="estado" name="estado" placeholder="" >
+                                        </div>
+                                        <div class="form-group col-sm-5 flex-column d-flex"><label class="form-control-label px-3">bairro<span class="text-danger"> *</span></label>
+                                            <input type="text" id="bairro" name="bairro">
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">    
+                                        <div class="form-group col-sm-10 flex-column d-flex"><label class="form-control-label px-3">ENDEREÇO<span class="text-danger"> *</span></label>
+                                            <input type="text" id="endereco" name="endereco" placeholder="">
+                                        </div>
+                                        <div class="form-group col-sm-2 flex-column d-flex"><label class="form-control-label px-3">NÚM<span class="text-danger"> *</span></label>
+                                            <input type="text" id="numero" name="numero" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-4 flex-column d-flex"><label class="form-control-label px-3">COMP.<span class="text-danger"> *</span></label>
+                                            <input type="text" id="complemento" name="complemento" placeholder="Apto 1 - Bloco 2 / Próximo a..">
+                                        </div>
+                                        <div class="form-group col-sm-3 flex-column d-flex">
+                                            <label class="form-control-label px-3">PAGAMENTO<span class="text-danger"> *</span></label> 
+                                            <input type="text" id="condPgto" name="condPgto" placeholder="30/45 DDL">
+                                        </div>
+                                        <div class="form-group col-sm-5 flex-column d-flex">
+                                            <label class="form-control-label px-3">TRANSPORTE<span class="text-danger"> *</span></label>
+                                            <input type="text" id="condTransporte" name="condTransporte" placeholder="FOB ou CIF.."> 
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="text-end">
+                                            <button class="btn btn-success" id="btnSalvar" style="font-size: 14px;" type="submit">Salvar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal de Validação -->
+                    <div id="modalValidacao" class="modal1">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 500px; max-height: 200px;">
+                            <div class="modal-content1">
+                                <div class="modal-header">
+                                    <div>
+                                        <a><img src="assets/icons/atencao.gif" alt="sucess" class="imagem-modal"><strong>Atenção</strong></a>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Preencha todos os campos corretamente.</div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btnFechar" id="btnFechar" data-dismiss="modal">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modal de Sucesso no Cadastro -->
+                    <div class="modal fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 700px; max-height: 300px;">
+                            <div class="modal-content modalC">
+                                <div class="modal-body">
+                                    <div class="d-flex align-items-center"> <!-- Utiliza Flexbox para alinhar itens verticalmente -->
+                                        <img src="assets/icons/cadastro.gif" alt="cadastro" class="imagem-modal mr-3" style="width: 60px; height: 60px;"> <!-- Adiciona margem à direita (mr) para espaçamento -->
+                                        <div class="align-self-center">
+                                            <p><strong> Os dados foram salvos com sucesso.</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btnOK1" id="btnOK1" data-dismiss="modal">Novo Cliente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
+                <div id="rodape"></div>
+            </div>
+        </div>
+
+        <script>
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('rodape.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('rodape').innerHTML = data;
+                    });
+
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('header').innerHTML = data;
+                    });
+
+            // Quando o documento estiver pronto
+            $(document).ready(function () {
+                // Ao clicar em btnSave
+                $("#btnConsultaOrc").click(function () {
+                    // Redireciona para a página orcamentos.html
+                    window.location.href = "clientes.html";
+                });
+            });
+
+            async function consultarCnpj() {
+                const cnpjOk = document.getElementById('cnpj').value;
+                const cnpj = limparCNPJ(cnpjOk);
+
+                const apiUrl = `https://publica.cnpj.ws/cnpj/${cnpj}`;
+
+                try {
+                    const response = await fetch(apiUrl);
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        preencherCamposFormulario(data);
+                    } else {
+                        console.error(`Erro na solicitação: ${response.status}`);
+                        const errorData = await response.text();
+                        console.error(errorData);
+                    }
+                } catch (error) {
+                    console.error('Erro na solicitação:', error);
+                }
+            }
+
+            function preencherCamposFormulario(data) {
+                // Preencha os campos do formulário com os dados retornados da API
+                document.getElementById('razao').value = data.razao_social || '';
+                document.getElementById('telefone').value = data.estabelecimento.ddd1 + data.estabelecimento.telefone1 || '';
+                document.getElementById('celular').value = data.estabelecimento.ddd2 + data.estabelecimento.telefone2 || '';
+                document.getElementById('cep').value = data.estabelecimento.cep || '';
+                document.getElementById('cidade').value = data.estabelecimento.cidade.nome || '';
+                document.getElementById('estado').value = data.estabelecimento.estado.sigla || '';
+                document.getElementById('bairro').value = data.estabelecimento.bairro || '';
+                document.getElementById('endereco').value = `${data.estabelecimento.tipo_logradouro} ${data.estabelecimento.logradouro}` || '';
+                document.getElementById('numero').value = data.estabelecimento.numero || '';
+                document.getElementById('complemento').value = data.estabelecimento.complemento || '';
+            }
+
+            $("#buscaCnpj").click(function () {
+                consultarCnpj();
+            });
+
+            function limparCNPJ(cnpj) {
+                // Remove caracteres especiais (tudo que não é número)
+                return cnpj.replace(/[^\d]/g, '');
+            }
+            
+            // Obtém uma referência para o botão btnOK
+                var btnOK = document.getElementById("btnOK1");
+
+                // Adiciona um ouvinte de clique ao botão
+                btnOK.addEventListener("click", function () {
+                    // Redireciona para a página "index.html"
+                    window.location.href = "cadastro_clientes.html";
+                });
+
+
+        </script>
+        <!-- Include JavaScript -->
+        <script src="js/mascarasClientes.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scriptsPedido.js"></script>                              
+
+    </body>
+</html>
+

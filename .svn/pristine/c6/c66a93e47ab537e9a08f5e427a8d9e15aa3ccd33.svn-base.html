@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Beatriz">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/js/bootstrap.min.js'></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta2/css/bootstrap.min.css'>
+        <link href="css/login.css" rel="stylesheet" />
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                console.log("Document is ready");
+                // Verifique se há um parâmetro de erro na URL
+                const params = new URLSearchParams(window.location.search);
+                if (params.get("sucesso") === "1") {
+                    // Mostrar o modal de erro
+                    $('#modalSucesso').modal('show');
+                }
+                if (params.get("erro") === "1") {
+                    // Mostrar o modal de erro
+                    $('#errorModal').modal('show');
+                }
+            });
+
+        </script>
+
+        <!-- Title Page-->
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+
+        <style>
+            .logo-modal{
+                width: 300px; /* Defina a largura desejada para a imagem */
+                height: 150px; /* Defina a altura desejada para a imagem */
+                margin-right: 10px;
+            }
+            .imagem-modal {
+                width: 30px; /* Defina a largura desejada para a imagem */
+                height: 30px; /* Defina a altura desejada para a imagem */
+                margin-right: 10px; /* Espaçamento à direita da imagem (pode ser ajustado conforme necessário) */
+            }
+            .modalE {
+                border: 1px solid #d60f0f; 
+            }
+
+            .modalS {
+                border: 1px solid #14c74f; 
+            }
+        </style>
+
+    </head>
+    <body>
+        <!-- partial:index.partial.html -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+
+                    <div class="card my-5">
+
+                        <form id="formAcesso" action="LoginServlet" method="POST" class="card-body cardbody-color p-lg-5">
+
+                            <div class="text-center">
+                                <img
+                                    id="animationDemo"
+                                    data-mdb-toggle="animation"
+                                    data-mdb-animation-reset="true"
+                                    src="assets/img/navbar-logo.png"
+                                    class="shadow-1-strong rounded-end-circle"
+                                    style="width: 220px"
+                                    ><p></p>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuário">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary px-5 mb-5 w-100">Entrar</button></div>
+                            <div id="emailHelp" class="form-text text-center mb-5 text-dark" style="color: #ffffff;">Não possui conta? <a href="cadastro_usuario.html" class="text-dark fw-bold"> Criar conta</a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="text-center mb-5 text-dark">Defran - Produtos para Movimentação de Cargas</div>
+
+                    <!-- Modal de erro de login -->
+                    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div>
+                                        <img src="assets/icons/atencao.gif" alt="erro" class="imagem-modal">
+                                    </div>
+                                    <div>
+                                        <h5 class="modal-title" id="errorModalLabel">Erro de Login</h5>
+                                    </div>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    O Usuário não existe ou a senha está inválida!
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal de Sucesso de login -->
+                    <div class="modal fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" style="max-width: 700px; max-height: 600px;">
+                            <div class="modal-content modalS">
+                                <div class="modal-header">
+                                  
+                                </div>
+
+                                <!-- Conteúdo da imagem centralizada verticalmente -->
+                                <div class="modal-body d-flex align-items-center justify-content-center">
+                                    <img src="assets/img/logoDefran.jpg" alt="sucesso" class="logo-modal">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" id="btnOK" data-dismiss="modal">Ir ao Menu Principal</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Seu modal code aqui...
+
+                // Obtém uma referência para o botão btnOK
+                var btnOK = document.getElementById("btnOK");
+
+                // Adiciona um ouvinte de clique ao botão
+                btnOK.addEventListener("click", function () {
+                    // Redireciona para a página "index.html"
+                    window.location.href = "index.html";
+                });
+            });
+        </script>
+
+    </body>
+
+</html>

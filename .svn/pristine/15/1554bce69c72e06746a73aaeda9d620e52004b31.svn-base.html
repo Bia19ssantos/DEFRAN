@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário de Inserção de Dados</title>
+
+    </head>
+    <body>
+        <h1>Formulário de Inserção de Dados</h1>
+        <form action="testeServlet" method="POST" id="form" onclick="enviarDadosParaServlet()">
+
+            <!-- Campos para os salvar os dados na tabela orcamento -->
+            <label for="inputNumOrc">Número do Orçamento:</label>
+            <input type="text" id="inputNumOrc" name="inputNumOrc" required><br><br>
+
+            <label for="inputDataOrc">Data do Orçamento:</label>
+            <input type="date" id="inputDataOrc" name="inputDataOrc"><br><br>
+
+            <label for="inputVendedor">Vendedor:</label>
+            <input type="text" id="inputVendedor" name="inputVendedor" required><br><br>
+
+
+            <label for="inputCnpj">CNPJ:</label>
+            <input type="text" id="inputCnpj" name="inputCnpj" required><br><br>
+
+            <label for="inputCliente">Cliente:</label>
+            <input type="text" id="inputCliente" name="inputCliente" required><br><br>
+
+            <label for="inputContato">Contato:</label>
+            <input type="text" id="inputContato" name="inputContato" required><br><br>
+
+            <label for="inputCondPgto">Condicao de Pgto:</label>
+            <input type="text" id="inputCondPgto" name="inputCondPgto" required><br><br>
+
+            <label for="inputCondTransporte">Condicao de Transporte:</label>
+            <input type="text" id="inputCondTransporte" name="inputCondTransporte" required><br><br>
+
+            <label for="inputTotalOrc">Total do Orcamento:</label>
+            <input type="text" id="inputTotalOrc" name="inputTotalOrc" required><br><br>
+
+            <!-- Tabela para salvar os itens do orcamento -->
+            <table class="table table-striped" id="itens">
+                <thead>
+                    <tr style="background-color: #3666a8;">
+                        <th scope="col" style="font-size: 10px;">Item</th>
+                        <th scope="col" style="font-size: 10px;">Referência</th>
+                        <th scope="col" style="font-size: 10px;">Descrição</th>
+                        <th scope="col" style="font-size: 10px;">Ncm</th>
+                        <th scope="col" style="font-size: 10px;">Tipo</th>
+                        <th scope="col" style="font-size: 10px;">Quantidade</th>
+                        <th scope="col" style="font-size: 10px;">Preço Unitário</th>
+                        <th scope="col" style="font-size: 10px;">Valor Total</th>
+                        <th scope="col" style="font-size: 10px;">Prazo</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaBody">
+                    
+                </tbody>
+            </table>
+            <input type="submit" value="Inserir Dados" id="btnSalvar" name="btnSalvar">   
+        </form>
+        <script src="js/teste.js"></script>
+    </body>
+</html>

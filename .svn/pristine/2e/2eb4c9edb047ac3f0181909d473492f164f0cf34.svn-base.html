@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <!-- Title Page--->
+        <title>Defran - Produtos para Elevação de Cargas</title>
+
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/stylePedido.css">
+
+        <!-- Inclua o arquivo jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Inclua os arquivos CSS do Bootstrap -->
+
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            .btn1 {
+                background-color: #ffffff; /* Cor de fundo do botão */
+                border: 1px solid #3eb26b; /* Remova a borda do botão */
+                padding: 4px 24px; /* Espaçamento interno do botão */
+                color: #3eb26b; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+            }
+            .btn-remover{
+                background-color: #ffffff;
+                border: 1px solid red;
+            }
+            .btn-remover img {
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+
+            }
+
+            .btn1:hover {
+                background-color: #3eb26b;
+                color: #ffffff;
+                border: 1px solid #ffffff;
+            }
+
+            .btnSalvar {
+                background-color: #3eb26b; /* Cor de fundo do botão */
+                border: #ffffff;
+                padding: 5px 10px; /* Espaçamento interno do botão */
+                color: #ffffff ; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+            }
+
+            .btnSalvar:hover {
+                background-color: #ffffff;
+                color: #3eb26b;
+                border: 1px solid #3eb26b; /* Remova a borda do botão */
+            }
+
+            .btn1 img {
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+            }
+
+            .gif-orc {
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+            .btnPDF img {
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+            .btnPDF {
+                background-color: #ffffff;
+                color: red;
+                border: 1px solid red; /* Remova a borda do botão */
+            }
+
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+        </style>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav" style="margin-top: 40px;">
+                            <a class="nav-link collapsed" href="cadastrar" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/menu2.ico" alt="Icone Menu"></i></div>
+                                Menu Principal
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesCadastrar">
+                                    <a class="nav-link collapsed" href="Cadastrar" data-bs-toggle="collapse" data-bs-target="#pagesCollapseCadastrar" aria-expanded="false" aria-controls="pagesCollapseCadastrar">
+                                        Cadastrar
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseCadastrar" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPagesCadastrar">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="cadastro_clientes.html">Clientes</a>
+                                            <a class="nav-link" href="cadastro_orcamentos.html">Orcamentos</a>
+                                            <a class="nav-link" href="cadastro_vendas.html">Vendas</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesConsultas">
+                                    <a class="nav-link collapsed" href="collapse" data-bs-toggle="collapse" data-bs-target="#pagesCollapseConsultas" aria-expanded="false" aria-controls="pagesCollapseConsultas">
+                                        Consultas
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseConsultas" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPagesConsultas">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="clientes.html">Clientes</a>
+                                            <a class="nav-link" href="orcamentos.html">Orcamentos</a>
+                                            <a class="nav-link" href="cadastro_vendas.html">Vendas</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesCatalogos">
+                                    <a class="nav-link collapsed" href="collapse" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                        Catálogos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPagesCatalogos">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="catalogo_gunnebo.html">Gunnebo</a>
+                                            <a class="nav-link" href="catalogo_crosby.html">Crosby</a>
+                                            <a class="nav-link" href="catalogo_pewag8.html">Pewag Grau 8</a>
+                                            <a class="nav-link" href="catalogo_pewag10.html">Pewag Grau 10</a>
+                                            <a class="nav-link" href="catalogo_rud.html">Rud</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+
+
+                                <div class="sb-sidenav-menu-heading">Consultas</div>
+                                <a class="nav-link" href="est_gunnebo.html">
+                                    <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/estoque.png" alt="Icone Estoque"></div>
+                                    Estoque Gunnebo
+                                </a>
+                                <a class="nav-link" href="est_defran.html">
+                                    <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/iconEstoque.png" alt="Icone Estoque"></div>
+                                    Estoque Defran
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Bem Vindo ao Sistema da Defran
+                    </div>
+                </nav>
+            </div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="logos-container">
+                                <img class="logoDefran" src="assets/img/logoDefran.jpg" alt="Logo Defran">
+                                <img class="logoGunnebo logo" src="assets/icons/crosbyGunnebo.ico" alt="Logo Gunnebo">
+                            </div>
+                            <p>
+                                <!----------------------------------------------------------------- INICIO DO MODAL ------------------------------------------------->
+                            <div class="modal fade" id="modalProdutos" tabindex="-1" role="dialog" aria-labelledby="modalProdutosLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg"  style="max-width: 1000px; max-height: 600px;  z-index: 1050;">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalProdutosLabel"></h5>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Fechar">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="row justify-content-between text-left">
+                                            <div class="form-group col-sm-4 flex-column d-flex">
+                                                <label class="form-control-label px-4">MARCA<span class="text-danger"> *</span></label>
+                                                <select class="form-select" id="marca" type="text" name="marca">
+                                                    <option selected></option>
+                                                    <option value="gunnebo">Gunnebo</option>
+                                                    <option value="manilhas">Manilhas Crosby</option>
+                                                    <option value="pewag">Pewag Helevar</option>
+                                                    <option value="crosby">Produtos Crosby</option>
+                                                    <option value="spanset">Spanset</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-sm-4 flex-column d-flex">
+                                                <label class="form-control-label px-4">PESQUISAR<span class="text-danger"> *</span></label>
+                                                <input type="text" id="filtroProduto" class="form-control" placeholder="Filtrar pela referência...">
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card-body">
+                                                <table id="table-gunnebo" class="datatablesSimple" class="table selected-row" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>SAP</th>
+                                                            <th>REFERÊNCIA</th>
+                                                            <th>DESCRIÇÃO</th>
+                                                            <th>NCM</th>
+                                                            <th>IPI</th>
+                                                            <th>TIPO</th>
+                                                            <th>CUSTO</th>
+                                                            <th>VENDA</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="table-body-gunnebo">
+                                                        <tr class="table-row">
+                                                            <!-- células de dados aqui -->
+                                                        </tr>
+                                                        <!-- outras linhas de dados aqui -->
+                                                    </tbody>
+                                                </table>
+                                                <!-- Tabela para Manilhas Crosby -->
+                                                <table id="table-manilhas" class="datatablesSimple" class="table" style="display: none;" >
+                                                    <thead>
+                                                        <tr>  
+                                                            <th>SAP</th>
+                                                            <th>REFERÊNCIA</th>
+                                                            <th>DESCRIÇÃO</th>
+                                                            <th>NCM</th>
+                                                            <th>IPI</th>
+                                                            <th>TIPO</th>
+                                                            <th>CUSTO</th>
+                                                            <th>VENDA</th>
+                                                        </tr>
+                                                    <thead>
+                                                    <tbody id="table-body-manilhas">
+                                                        <!-- Os dados do banco de dados para as Manilhas da Crosby serão carregados aqui dinamicamente -->
+                                                    </tbody>
+                                                </table>
+
+                                                <!-- Tabela para Pewag Helevar -->
+                                                <table id="table-pewag" class="datatablesSimple" class="table" style="display: none;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>CODIGO</th>
+                                                            <th>REF.PEWAG</th>
+                                                            <th>NCM</th>
+                                                            <th>IPI</th>
+                                                            <th>TIPO</th>
+                                                            <th>CUSTO</th>
+                                                            <th>VENDA</th>
+                                                        </tr>
+                                                    <thead>
+                                                    <tbody id="table-body-pewag">
+                                                        <!-- Os dados do banco de dados para Pewag Helevar serão carregados aqui dinamicamente -->
+                                                    </tbody>
+                                                </table>
+
+                                                <!-- Tabela para Crosby -->
+                                                <table id="table-crosby" class="datatablesSimple" class="table" style="display: none;" >
+                                                    <thead>
+                                                        <tr>  
+                                                            <th>SAP</th>
+                                                            <th>REFERÊNCIA</th>
+                                                            <th>NCM</th>
+                                                            <th>IPI</th>
+                                                            <th>TIPO</th>
+                                                            <th>CUSTO</th>
+                                                            <th>VENDA</th>
+                                                        </tr>
+                                                    <thead>
+                                                    <tbody id="table-body-crosby">
+                                                        <!-- Os dados do banco de dados para os Produtos Crosby serão carregados aqui dinamicamente -->
+                                                    </tbody>
+                                                </table>
+
+                                                <!-- Tabela para Spanset -->
+                                                <table id="table-spanset" class="datatablesSimple" class="table" style="display: none;" >
+                                                    <thead>
+                                                        <tr>
+                                                            <th>CODIGO</th>
+                                                            <th>REFERENCIA</th>
+                                                            <th>NCM</th>
+                                                            <th>ICMS</th>
+                                                            <th>TIPO</th>
+                                                            <th>CUSTO</th>
+                                                            <th>VENDA</th>
+                                                        </tr>
+                                                    <thead>
+                                                    <tbody id="table-body-spanset">
+                                                        <!-- Os dados do banco de dados para Spanset serão carregados aqui dinamicamente -->
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!----------------------------------------------------------------- FIM DO MODAL ------------------------>
+
+                            <form>
+                                <div class="wrapper wrapper--w790" style="max-width: 1400px;">
+                                    <div class="card-header">
+                                        <a><img src="assets/icons/vendas.gif" alt="produtos" class="gif-orc"> Itens da Linga</a>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card card-5">
+                                            <div class="card-body">
+                                                <div class="row row-space" class="py-8">
+                                                    <div class="input-group col-2">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Item</span>
+                                                        <input type="text" id="inputItem" name="inputItem" style="font-size: 12px; height: 33px;" class="form-control" title="Item" placeholder="">
+                                                        <span id="inputItemSpan"></span>
+                                                    </div>
+                                                    <div class="input-group col-8">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Ref.</span>
+                                                        <input type="text" id="inputRefProd" name="inputRefProd" onkeydown="enterProdutos(event)" style="font-size: 12px; height: 33px;" class="form-control">
+                                                        <button class="btn btn-primary" id="btnNavbarSearchProdutos" data-toggle="modal" data-target="#modalProdutos" type="button" style="width: 33px; height: 33px;" title="RefProd" placeholder=""><i class="fas fa-search"></i></button>
+                                                    </div>
+                                                    <div class="input-group col-2">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Un</span>
+                                                        <input type="text" id="inputTipo" name="inputTipo" style="font-size: 12px; height: 33px;" class="form-control" title="Tipo" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p></p>
+                                                <div class="row row-space" class="py-8">
+                                                    <div class="input-group col-9">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Descrição</span>
+                                                        <input type="text" id="inputDescProd" name="inputDescProd" style="font-size: 12px; height: 33px;" class="form-control" title="DescProd" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-3">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Ncm</span>
+                                                        <input type="text" id="inputNcm" name="inputNcm" style="font-size: 12px; height: 33px;" class="form-control"title="Ncm" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p></p>
+                                                <div class="row row-space" class="py-8">
+                                                    <div class="input-group col-2">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Qtde</span>
+                                                        <input type="text" id="inputQtde" name="inputQtde" style="font-size: 12px; height: 33px;" class="form-control" title="Qtde" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-4">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Preço Unit.</span>
+                                                        <input type="text" id="inputValorUnit" name="inputValorUnit" style="font-size: 12px; height: 33px;" class="form-control" title="Valor Unitario" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-4">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Total</span>
+                                                        <input type="text" id="inputTotalItem" name="inputTotalItem" style="font-size: 12px; height: 33px;" class="form-control" title="Total por Item" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-2">
+                                                        <button type="button" class="btn1" name="btnAdicionar" id="btnAdicionar" style="height: 33px;"> <img src="assets/icons/add.png" alt="adicionar"> Adicionar</button>
+                                                    </div>
+                                                </div>
+                                                <p></p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- TABELA DE PRODUTOS ADICIONADOS NO ORÇAMENTO-->
+                                <div class="card-header">
+                                    <a><img src="assets/icons/carrinho.gif" alt="carinho" class="gif-orc"> Produtos Adicionados</a>
+                                </div>
+
+                                <table class="table table-striped" id="itensTable">
+                                    <thead>
+                                        <tr style="background-color: #3666a8;">
+                                            <th scope="col" style="font-size: 10px;">Item</th>
+                                            <th scope="col" style="font-size: 10px;">Referencia</th>
+                                            <th scope="col" style="font-size: 10px;">Descricao</th>
+                                            <th scope="col" style="font-size: 10px;">Ncm</th>
+                                            <th scope="col" style="font-size: 10px;">Tipo</th>
+                                            <th scope="col" style="font-size: 10px;">Qtde</th>
+                                            <th scope="col" style="font-size: 10px;">Valor Unit.</th>
+                                            <th scope="col" style="font-size: 10px;">Total Item</th>
+                                            <th scope="col" style="font-size: 10px;">Prazo de Entrega</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <!-- linhas de dados aqui -->
+                                    </tbody>
+                                </table>
+
+                                <!-- Campos ocultos para os valores da tabela -->
+                                <input type="hidden" id="hiddenItem" name="item[]" value="">
+                                <input type="hidden" id="hiddenRefProd" name="referencia[]" value="">
+                                <input type="hidden" id="hiddenDescProd" name="descricao[]" value="">
+                                <input type="hidden" id="hiddenNcm" name="ncm[]" value="">
+                                <input type="hidden" id="hiddenTipo" name="tipo[]" value="">
+                                <input type="hidden" id="hiddenQuantidade" name="quantidade[]" value="">
+                                <input type="hidden" id="hiddenValorUnitario" name="valorUnitario[]" value="">
+                                <input type="hidden" id="hiddenTotalItem" name="totalItem[]" value="">
+                                <input type="hidden" id="hiddenPrazoEntrega" name="prazoEntrega[]" value="">
+
+                                <div class="card-body">
+                                    <div class="row row-space" class="py-3">
+                                        <div class="input-group col-5">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">* Produtos importados - The Crosby by Group / Gunnebo</span>                                            
+                                        </div>
+                                        <div class="input-group col-3">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Total</span>
+                                            <input type="text" id="inputTotalOrc" name="inputTotalOrc" style="font-size: 12px; height: 33px;" class="form-control" title="Total do Orcamento" placeholder="">
+                                        </div>
+                                        <div class="input-group col-2">
+                                            <button type="submit" id="btnSalvar" class="btnSalvar" style="width: 80px; height: 33px;">Salvar</button>
+                                        </div>
+                                        <div class="input-group col-2">
+                                            <button type="button" id="btnPDF" name="btnPDF" class="btnPDF"><img src="assets/icons/ipdf.gif" alt="adicionar">Salvar PDF</button>
+                                        </div>
+                                        <!-- Elementos para mensagens de erro e sucesso -->
+                                        <div id="mensagemErro" class="mensagem erro"></div>
+                                        <div id="mensagemSucesso" class="mensagem sucesso"></div>
+                                    </div>
+                                </div>
+                                <div class="alert-info">
+                                    <p class="p">TODOS OS IMPOSTOS INCLUSOS</p>
+                                    <p class="p">FORNECIDO COM CERTIFICADO DE QUALIDADE</p>
+                                    <p class="p">ICMS: 18% Incluso</p>
+                                    <p class="p">IPI: Incluso</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Defran 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Termos &amp; Condições</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- java Script Local-->
+        <script src="vendor/select2/select2.min.js"></script>
+        <script src="vendor/datepicker/moment.min.js"></script>
+        <script src="js/scriptsPedido.js"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="js/modalClientes.js"></script>
+        <script src="js/validarForm.js"></script>
+        <script src="js/prodGunnebo.js"></script>
+        <script src="js/prodPewag.js"></script>
+        <script src="js/prodCrosby.js"></script>
+        <script src="js/manilhasCrosby.js"></script>
+        <script src="js/prodSpanset.js"></script>
+        <script src="js/addLinhaTabela.js"></script>
+    </body>
+</html>
+

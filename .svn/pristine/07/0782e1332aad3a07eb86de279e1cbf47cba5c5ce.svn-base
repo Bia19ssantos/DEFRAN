@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/07/2023, 10:21:00
+    Author     : DEFRAN-4
+*/
+
+.btn-color{
+ background-color: #cfe2f3; /* Replace this with your desired color */
+ color: #ffffff; /* Set the text color to make it readable on the background */
+  
+}
+
+.profile-image-pic{
+  height: 300px;
+  width: 600px;
+  object-fit: cover;
+}
+
+.cardbody-color{
+  background-color: #cfe2f3;
+  color: #cfe2f3;
+}
+
+a{
+  text-decoration: none;
+  color: #ffffff
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.25rem;
+  color: #ffffff
+}

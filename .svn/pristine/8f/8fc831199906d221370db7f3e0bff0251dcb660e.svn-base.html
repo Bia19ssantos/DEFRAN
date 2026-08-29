@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Beatriz">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+        
+        <!-- ... Arquivos JS ... -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- ... Arquivos CSS ... -->
+        <link rel="stylesheet" href="css/tableBlack.css">
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/stylePedido.css">
+        
+        <style>
+            .linha-selecionada {
+            background-color: red; /* Cor de destaque da linha selecionada */
+        }
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+            
+            .btnSucesso{
+                background-color: green;
+                color: white;
+                width: 60px;
+                height: 30px;
+            }
+            
+            .btnSucesso:hover {
+                background-color: white;
+                color: green;
+                width: 60px;
+                height: 30px;
+                border: 1px solid green;
+            }
+          
+        </style>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="header"></div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="card-header">
+                                <div class="p-3 mb-2 bg-primary text-white" style="width: 1300px; height: 40px;">Defran - Entrada e Saida de Estoque</div>
+                            </div>
+                           
+                            <div style="margin-top: 20px;"></div>
+                        </div>
+
+                        <p></p>
+                        <form id="formEstoque" method="POST" action="AtualizarEstoqueServlet">
+                            <div class="row row-space">
+                                <div class="col-md-4">
+                                    <label class="mb-0" style="font-size: 12px; height: 31px;">Codigo</label>
+                                    <input type="text" id="inputCodigo" name="inputCodigo" style="font-size: 12px; height: 31px;" class="form-control" title="Vendedor" placeholder="">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="mb-0" style="font-size: 12px; height: 33px;">Referencia</label>
+                                    <input type="text" id="inputRef" name="inputRef" style="font-size: 12px; height: 33px;" class="form-control" title="Pagamento">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="mb-0" style="font-size: 12px; height: 33px;">Qtde</label>
+                                    <input type="text" id="inputQtde" name="inputQtde" style="font-size: 12px; height: 33px;" class="form-control" title="Transporte" placeholder="">
+                                </div>
+                                <div class="col-md-2 align-self-end">
+                                    <button type="submit" id="btnAlterar" name="btnAlterar" class="btn btnSucesso btn-sm">Salvar</button>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-md-2">
+                                    <label class="mb-0" style="font-size: 12px; height: 33px;">Id</label>
+                                    <input type="text" id="inputId" name="inputId" style="font-size: 12px; height: 33px;" class="form-control" title="Pagamento">
+                                </div>
+                                <div class="col-md-10">
+                                    <label class="mb-0" style="font-size: 12px; height: 33px;">Descricao</label>
+                                    <input type="text" id="inputDescricao" name="inputDescricao" style="font-size: 12px; height: 33px;" class="form-control" title="Pagamento">
+                                </div>
+                            </div>
+                        </form>
+                        <div style="margin-top: 20px;"></div>
+                        <div class="card-body">
+                            <div class="row justify-content-between text-left">
+                                <div style="margin-top: 20px;"></div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">PESQUISAR<span class="text-danger"> *</span></label>
+                                    <div class="col-sm-4" style="margin-left: -50px;">
+                                        <input type="text" id="filtro" class="form-control" placeholder="Referencia do Produto">
+                                    </div>
+                                </div>
+                                <!-- Add a espaço <div>  -->
+                                <div style="margin-top: 20px;"></div>
+                                <!-- ----------------------------------INICIO DOS DADOS NA PAGINA--------------------------------------------->
+
+                                <div class="form-control">
+                                    <div class="table-responsive custom-table-responsive">
+                                        <table class="datatablesSimple" class="table">
+                                            <thead>
+                                                <tr class="spacer">
+                                                    <th scope="col1">ID</th>
+                                                    <th scope="col2">CÓDIGO</th>
+                                                    <th scope="col3">REFERÊNCIA</th>
+                                                    <th scope="col4">DESCRIÇÃO</th>
+                                                    <th scope="col5">QUANTIDADE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table-body">
+                                                <!-- Os dados do banco de dados serão carregados aqui dinamicamente -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
+                    </div>
+                </main>
+                <div id="rodape"></div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+                fetch('rodape.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('rodape').innerHTML = data;
+                        });
+
+                // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+                fetch('header.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('header').innerHTML = data;
+                        });
+
+                // Ao clicar em uma linha da tabela
+                $("#table-body").on("click", "tr", function () {
+                    // Obtém os dados da linha clicada
+                    var id = $(this).find("td:eq(0)").text();
+                    var codigo = $(this).find("td:eq(1)").text();
+                    var referencia = $(this).find("td:eq(2)").text();
+                    var descricao = $(this).find("td:eq(3)").text();
+                    var quantidade = $(this).find("td:eq(4)").text();
+
+                    // Preenche os inputs com os dados obtidos
+                    $("#inputId").val(id);
+                    $("#inputCodigo").val(codigo);
+                    $("#inputRef").val(referencia);
+                    $("#inputDescricao").val(descricao);
+                    $("#inputQtde").val(quantidade);
+                });
+
+                // Adicione eventos de clique às linhas da tabela
+                let linhasTabela = document.querySelectorAll('.linha-tabela');
+                linhasTabela.forEach(function (linha) {
+                    linha.addEventListener('click', function () {
+                        selecionarLinha(linha.id);
+                    });
+                });
+            });
+
+            function selecionarLinha(id) {
+        // Remova a classe 'linha-selecionada' de todas as linhas
+        let linhasTabela = document.querySelectorAll('.linha-tabela');
+        linhasTabela.forEach(function (linha) {
+            linha.classList.remove('linha-selecionada');
+        });
+
+        // Adicione a classe 'linha-selecionada' à linha clicada
+        let linhaSelecionada = document.getElementById(id);
+        linhaSelecionada.classList.add('linha-selecionada');
+    }
+
+        </script>
+        <!--... Arquivos Java Scripts-->
+        <script src="js/scriptsPedido.js"></script>
+        <script src="js/estoqueDefran.js"></script>
+
+    </body>
+</html>
+

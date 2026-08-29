@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <!-- Icons font CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/stylePedido.css" rel="stylesheet" />
+        <link href="css/clientes.css" rel="stylesheet" />
+
+        <!-- Include the jQuery Mask Plugin -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            .modalC {
+                border: 1px solid #14c74f; 
+            }
+            .logo-modal{
+                width: 300px; /* Defina a largura desejada para a imagem */
+                height: 150px; /* Defina a altura desejada para a imagem */
+                margin-right: 10px;
+            }
+            .modalS {
+                border: 1px solid #14c74f; 
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <div  id="confirmarModal" tabindex="-1" role="dialog" aria-labelledby="confirmarModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modalC">
+                        <div class="modal-header">
+                            <div>
+                                <a><img src="assets/icons/sucesso.gif" alt="sucess" class="imagem-modal"></a>
+                            </div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Usuario Cadastrado com sucesso!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btnOK" data-dismiss="modal">Fazer Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!-- Seu JavaScript aqui -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Seu modal code aqui...
+
+                // Obtém uma referência para o botão btnOK
+                var btnOK = document.getElementById("btnOK");
+
+                // Adiciona um ouvinte de clique ao botão
+                btnOK.addEventListener("click", function () {
+                    // Redireciona para a página "cadastro_orcamentos.html"
+                    window.location.href = "login.html";
+                });
+            });
+        </script>
+
+        <!-- Include JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scriptsPedido.js"></script>  
+    </body>
+</html>

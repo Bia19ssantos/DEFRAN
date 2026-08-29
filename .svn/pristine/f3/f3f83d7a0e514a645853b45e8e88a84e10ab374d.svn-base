@@ -1,0 +1,5 @@
+<nb-configuration>
+    <data xmlns="http://www.netbeans.org/ns/maven-properties-data/1">
+        <maven.version>3.8.1</maven.version>
+    </data>
+</nb-configuration>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html>
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <!-- Icons font CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/stylePedido.css" rel="stylesheet" />
+        <link href="css/clientes.css" rel="stylesheet" />
+
+        <!-- Include the jQuery Mask Plugin -->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.5/jquery.inputmask.min.js"></script>
+
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            .imagem-modal {
+                width: 30px; /* Defina a largura desejada para a imagem */
+                height: 30px; /* Defina a altura desejada para a imagem */
+                margin-right: 10px; /* Espaçamento à direita da imagem (pode ser ajustado conforme necessário) */
+            }
+            .modal {
+                border: 4px solid #d60f0f; /* Adiciona uma borda vermelha ao redor do modal */
+                /* Outros estilos que você desejar para o modal */
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <div  id="catalogoModal" tabindex="-1" role="dialog" classe="modal" aria-labelledby="catalogoModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document" style="max-width: 800px; max-height: 500px;  z-index: 1050;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div>
+                                <a><img src="assets/icons/ipdf.gif" alt="pdf" class="imagem-modal">Escolha o Catálogo abaixo</a>
+                            </div>
+                            <button type="button" class="btn btn-danger" id="sair" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-4 flex-column d-flex">
+                                <select id="opcoesCatalogos">
+                                    <option value=""></option>
+                                    <option value="catalogo_gunnebo.html">Catálogo Gunnebo</option>
+                                    <option value="catalogo_pewag8.html">Catálogo Pewag G8</option>
+                                    <option value="catalogo_pewag10.html">Catálogo Pewag G10</option>
+                                    <option value="catalogo_crosby.html">Catálogo Crosby</option>
+                                    <option value="catalogo_rud.html">Catálogo Rud</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+
+                var select = document.getElementById("opcoesCatalogos");
+                select.addEventListener("change", function () {
+
+                    var selectedValue = select.value;
+
+                    if (selectedValue !== "") {
+                        window.open(selectedValue, "_blank");
+                    }
+                });
+                var btnSair = document.getElementById("sair");
+
+                btnSair.addEventListener("click", function () {
+                    window.location.href = "index.html";
+                });
+            });
+
+        </script>
+
+        <!-- Include JavaScript -->
+        <script src="js/mascarasClientes.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scriptsPedido.js"></script>  
+    </body>
+</html>
+

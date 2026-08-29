@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-reverse-engineering SYSTEM "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+    <schema-selection match-catalog="defran" match-schema=""/>
+    
+    <table-filter match-name="clientes"/>
+    <table-filter match-name="vendas"/>
+    <table-filter match-name="estoque_defran"/>
+    <table-filter match-name="estoque_gunnebo"/>
+    <table-filter match-name="mod_lingas"/>
+    <table-filter match-name="orc_lingas"/>
+    <table-filter match-name="orcamentos"/>
+    <table-filter match-name="prod_gunnebo"/>
+    <table-filter match-name="prod_pewag"/>
+    <table-filter match-name="prod_spanset"/>
+    <table-filter match-name="xml_entrada"/>
+    <table-filter match-name="xml_saida"/>
+    <table-filter match-name="itens_orcamentos"/>
+    <table-filter match-name="usuarios"/>
+    <table-filter match-name="itens_pedido"/>
+    
+</hibernate-reverse-engineering>

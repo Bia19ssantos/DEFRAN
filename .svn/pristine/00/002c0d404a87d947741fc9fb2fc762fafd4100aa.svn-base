@@ -1,0 +1,11 @@
+<a href="https://colorlib.com/wp/templates/"><img src="assets/img/navbar-logo.png" alt="Logo Defran"></a>
+<h1 style="text-align:center;">Bem vindo ao sistema da DEFRAN</h1>
+<p style="text-align:center;">Para conhecer mais sobre a nossa empresa acesse: <strong><a href="http://www.defran.com.br/">Defran - Porto Feliz</a></strong>.</p>
+
+<style>
+img {
+  margin: 0 auto;
+  display: block;
+  margin-top: 20%;
+}
+</style>

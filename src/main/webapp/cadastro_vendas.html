@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Beatriz">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/stylePedido.css">
+
+        <!-- Inclua o arquivo jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+        <!-- Inclua os arquivos CSS do Bootstrap -->
+
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <style>
+            /* Seletor CSS para a imagem */
+            img {
+                width: 120px; /* Define a largura da imagem em pixels */
+                height: auto; /* Mantém a proporção original da imagem */
+            }
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+            .btnSalve {
+                display: flex;
+                align-items: center; /* Centraliza verticalmente */
+                background-color: #ffffff; /* Cor de fundo do botão */
+                border: 1px solid #004085 ;
+                padding: 5px; /* Espaçamento interno do botão */
+                color: #004085; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-left: 1000px; /* Ajuste conforme necessário */
+                margin-top: 30px; /* Ajuste conforme necessário */
+            }
+
+            .btnSalve:hover {
+                background-color: #007bff;
+                color: #ffffff;
+                border: 1px solid #007bff;
+            }
+
+            .btnSalve img {
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+                margin-right: 5px; /* Espaçamento à direita da imagem */
+            }
+
+            .btnBusca{
+
+                border: #ffffff;
+                padding: 2px 4px; /* Espaçamento interno do botão */
+                color: #ffffff ; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .btnBusca:hover {
+                background-color: #ffffff;
+                color: #004085;
+                border: 1px solid #004085;
+            }
+            .iconeB{
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+            }
+
+
+        </style>
+
+    </head>
+
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="header"></div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+
+                        <p></p>
+                        <div class="card mb-4">
+                            <p></p>
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <a class="d-flex align-items-center">
+                                        <img src="assets/icons/dollar.gif" alt="Vendas" class="gif-orc">
+                                        Pedidos
+                                    </a>
+                                </div>
+                                <div style="margin-left: 900px;"> <!-- Ajuste conforme necessário -->
+                                    <button type="button" id="btnConsultaVendas" name="btnConsultaVendas" class="btn btn-primary btnBusca">
+                                        <a>  Consultar <img src="assets/icons/busca.ico" class="iconeB" alt="Consultar"> </a>
+                                    </button>
+                                </div>
+                            </div>
+                            <p></p>
+
+                            <form id="formVendas" method="POST" action="SalvarVendaServlet">
+                                <div class="wrapper wrapper--w890" style="max-width: 1800px;">
+                                    <div class="card card-5">
+                                        <div class="card-body">
+                                            <div class="container">
+                                                <div class="row row-space" class="py-8">
+                                                    <div class="input-group col-3">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Num.Pedido</span>
+                                                        <input type="text" id="inputNumPedido" name="inputNumPedido" style="font-size: 14px; height: 33px;" class="form-control" title="Numero Pedido" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-4">
+                                                        <span style="font-size: 12px; height: 33px;"" class="input-group-text">Dat.Pedido</span>
+                                                        <input class="form-control" type="date" style="font-size: 14px; height: 33px;" name="inputDataPedido" id="inputDataPedido" title="Data do Pedido" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-5">
+                                                        <span class="input-group-text" style="font-size: 12px;">Cliente</span>
+                                                        <input type="text" id="inputCliente" name="inputCliente" style="font-size: 14px; height: 33px;" class="form-control" title="Cliente" placeholder="">
+                                                    </div>
+                                                </div>
+                                                <p></p>
+                                                <div class="row row-space" class="py-8">
+                                                    <div class="input-group col-3">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Nº Orç.</span>
+                                                        <input type="text" class="form-control" name="inputNumOrc" id="inputNumOrc" title="Número do Orçamento" placeholder="" style="font-size: 14px; height: 33px;">
+                                                    </div>
+                                                    <div class="input-group col-md-3">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 31px; ">Total Pedido</span>
+                                                        <input type="text" id="inputTotalPedido" name="inputTotalPedido" style="font-size: 14px; height: 31px;" class="form-control" title="Total do Pedido" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-md-3">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 31px; ">Nota Fiscal</span>
+                                                        <input type="text" id="inputNF" name="inputNF" style="font-size: 14px; height: 31px;" class="form-control" title="Nota Fiscal" placeholder="">
+                                                    </div>
+                                                    <div class="input-group col-md-3">
+                                                        <span class="input-group-text" style="font-size: 12px; height: 31px; ">Data NF</span>
+                                                        <input type="date" id="inputDataNF" name="inputDataNF" style="font-size: 14px; height: 31px;" class="form-control" title="Data Nota Fiscal" placeholder="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row row-space" class="py-8">
+                                        <div class="input-group col-2">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Item</span>
+                                            <input type="text" id="inputItem" name="inputItem" style="font-size: 12px; height: 33px;" class="form-control" title="Item" value="1">
+                                            <span id="inputItemSpan"></span>
+                                            <button class="btn btn-primary" id="btnNavbarSearchItens" type="button" style="width: 33px; height: 33px;" title="RefItem" placeholder=""><i class="fas fa-search"></i></button>
+                                        </div>
+                                        <div class="input-group col-7">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Ref.</span>
+                                            <input type="text" id="inputRefItem" name="inputRefItem" style="font-size: 12px; height: 33px;" class="form-control">
+                                        </div>
+                                        <div class="input-group col-3">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">NCM</span>
+                                            <input type="text" id="inputNcm" name="inputNcm" style="font-size: 12px; height: 33px;" class="form-control" title="NCM">
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row row-space" class="py-8">
+                                        <div class="input-group col-2">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Un</span>
+                                            <input type="text" id="inputTipo" name="inputTipo" style="font-size: 12px; height: 33px;" class="form-control" title="Tipo" value="PC">
+                                        </div>
+                                        <div class="input-group col-2">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Qtde</span>
+                                            <input type="text" id="inputQtde" name="inputQtde" style="font-size: 12px; height: 33px;" class="form-control" title="Qtde" placeholder="">
+                                        </div>
+                                        <div class="input-group col-3">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Preço Unit.</span>
+                                            <input type="text" id="inputValorUnit" name="inputValorUnit" style="font-size: 12px; height: 33px;" class="form-control" title="Valor Unitario" placeholder="">
+                                        </div>
+                                        <div class="input-group col-3">
+                                            <span class="input-group-text" style="font-size: 12px; height: 33px;">Total</span>
+                                            <input type="text" id="inputTotalItem" name="inputTotalItem" style="font-size: 12px; height: 33px;" class="form-control" title="Total por Item" placeholder="">
+                                        </div>
+                                        <div class="input-group col-2">
+                                            <button type="button" class="btn1" name="btnAddItens" id="btnAddItens" style="height: 33px;"><img src="assets/icons/add.gif" alt="adicionar"> Adicionar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group col-1">
+                                    <button type="submit" class="btnEnviar" name="btnEnviarPedido" id="btnEnviarPedido" style="display: none;">OK</button>
+                                </div>
+                                <!-- TABELA DE ITENS DO PEDIDO-->
+                                <div class="card-header">
+                                    <a><img src="assets/icons/carrinho.gif" alt="carinho" class="gif-orc"> Itens do Pedido</a>
+                                </div>
+
+                                <table class="table table-striped" id="itensTable">
+                                    <thead>
+                                        <tr style="background-color: #3666a8;">
+                                            <th scope="col" style="font-size: 10px;">Item</th>
+                                            <th scope="col" style="font-size: 10px;">Referencia</th>
+                                            <th scope="col" style="font-size: 10px;">NCM</th>
+                                            <th scope="col" style="font-size: 10px;">Tipo</th>
+                                            <th scope="col" style="font-size: 10px;">Qtde</th>
+                                            <th scope="col" style="font-size: 10px;">Valor Unit.</th>
+                                            <th scope="col" style="font-size: 10px;">Total Item</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body">
+                                        <!-- linhas de dados aqui -->
+                                    </tbody>
+                                </table>
+                                <button type="button" id="btnSave" name="btnSave" class="btnSalve rounded" style="width: 80px; height: 33px;"><img src="assets/icons/salvar.ico" data-dismiss="modal" alt="salvar">Salvar</button>
+
+                                <p></p>
+                            </form>
+                        </div>
+                        <!-- Modal de Sucesso no Cadastro -->
+                        <div id="modalSave" class="modalSave" data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog modal-dialog-centered" style="max-width: 600px; max-height: 100px;">
+                                <div class="modal-contentS">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                    <div class="modal-header">
+                                        <div class="modal-body">
+                                            <div class="d-flex align-items-center"> <!-- Utiliza Flexbox para alinhar itens verticalmente -->
+                                                <img src="assets/icons/cadastro.gif" alt="cadastro" class="imagem-modal mr-3" style="width: 60px; height: 60px;"> <!-- Adiciona margem à direita (mr) para espaçamento -->
+                                            </div>
+                                            <div class="align-self-center"><p>Os dados do Pedido foram salvos com sucesso.</p></div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" id="btnNovo">Novo Pedido</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal de Validação -->
+                        <div id="modalValidacao" class="modal1">
+                            <div class="modal-dialog modal-dialog-centered" style="max-width: 500px; max-height: 200px;">
+                                <div class="modal-content1">
+                                    <div class="modal-header">
+                                        <div>
+                                            <a><img src="assets/icons/atencao.gif" alt="sucess" class="imagem-modal"><strong>Atenção</strong></a>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">Preencha todos os campos corretamente.</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btnFechar" id="btnFechar" data-dismiss="modal">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Nao Existe este Item -->
+                        <div id="modalNaoTem" class="modal" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered" style="max-width: 500px;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <a><img src="assets/icons/atencao.gif" alt="sucesso" class="imagem-modal"><strong>Atenção</strong></a>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">Não existe este cadastro no sistema!</div>
+                                    <div class="modal-footer">
+                                        <!-- Adicione a classe 'data-dismiss' ao botão para fechar o modal -->
+                                        <button type="button" class="btnFechar" id="btnNT" data-dismiss="modal">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </main>
+                <div id="rodape"></div>
+            </div>
+        </div>
+        <script>
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('rodape.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('rodape').innerHTML = data;
+                    });
+
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('header').innerHTML = data;
+                    });
+
+            // Quando o documento estiver pronto
+            $(document).ready(function () {
+                // Ao clicar em btnSave
+                $("#btnConsultaVendas").click(function () {
+                    // Redireciona para a página orcamentos.html
+                    window.location.href = "vendas.html";
+                });
+            });
+            // Adicione um evento de clique ao botão "Novo Pedido"
+            document.getElementById("btnNovo").addEventListener("click", function () {
+                // Redirecione para a página cadastro_vendas
+                window.location.href = "cadastro_vendas.html";
+            });
+            // Adicione um evento de clique ao botão "Novo Pedido"
+            document.getElementById("btnNT").addEventListener("click", function () {
+                // Feche o modal
+                $("#modalNaoTem").modal("hide");
+            });
+
+
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
+        <!-- java Script Local-->
+        <script src="vendor/select2/select2.min.js"></script>
+        <script src="vendor/datepicker/moment.min.js"></script>
+        <script src="js/scriptsPedido.js"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+
+        <script src="js/validarForm.js"></script>
+        <script src="js/addItensPedido.js"></script>
+        <script src="js/consultaOrc.js"></script>
+
+    </body>
+</html>

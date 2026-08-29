@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
+        <!-- Bootstrap CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet" media="all">
+
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/stylePedido.css">
+        <link rel="stylesheet" href="css/tableBlack.css">
+        <!--link rel="stylesheet" href="css/tableBlack.css"-->
+
+        <style>
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+            .btnE{
+                background-color: #ffffff; /* Cor de fundo do botão */
+                background: url('assets/icons/lixoVermelho.png') no-repeat;
+                border: 1px solid #FF0000; /* Remova a borda do botão */
+                padding: 0; /* Remover qualquer preenchimento interno */
+                background-size: 20%; /* Para dimensionar a imagem corretamente */
+                background-position: 5px center; 
+                padding-right: 5px; /* Ajuste o espaço à esquerda do texto */
+                text-align: right;
+                color: red; /* Cor do texto no botão */
+                cursor: pointer;
+                width: 80px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+                transition: opacity 0.3s ease; /* Adicionar transição suave para a propriedade opacity */
+            }
+
+            .btnE:hover {
+                background: url('assets/icons/lixoBranco.png') no-repeat; /* Definir a imagem como fundo e centralizá-la */
+                background-color: #FF0000;
+                background-size: 20%; /* Para dimensionar a imagem corretamente */
+                background-position: 5px center; 
+                padding-right: 5px; /* Ajuste o espaço à esquerda do texto */
+                text-align: right;
+                color: white;
+                border: 1px solid #FF0000;
+                width: 80px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+            .btnAlterar{
+                background-color: green;
+                color: white;
+                width: 70px;
+                height: 30px;
+            }
+            .btnAlterar:hover {
+                background-color: white;
+                color: green;
+                width: 70px;
+                height: 30px;
+                border: 1px solid green;
+            }
+
+        </style>
+
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="header"></div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="row justify-content-between text-left">
+                            <div class="card-header">
+                                <div class="p-3 mb-2 bg-primary text-white" style="width: 1300px; height: 40px;">Defran - Produtos para Movimentação de Cargas</div>
+                            </div>
+
+                            <div style="margin-top: 30px;"></div>
+
+                            <form id="formCli" method="POST" action="AtualizarClienteServlet">
+                                <div class="row row-space">
+                                    <div class="col-md-6"  style="margin-bottom: 5px; ">
+                                        <label class="mb-0" style="font-size: 12px; height: 31px; margin-bottom: -20px;">Empresa</label>
+                                        <input type="text" id="inputRazao" name="inputRazao" style="font-size: 12px; height: 31px;" class="form-control" title="Razao" placeholder="">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="mb-0" style="font-size: 12px; height: 33px;">Contato</label>
+                                        <input type="text" id="inputContato" name="inputContato" style="font-size: 12px; height: 33px;" class="form-control" title="Contato">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="mb-0" style="font-size: 12px; height: 33px;">CNPJ</label>
+                                        <input type="text" id="inputCnpj" name="inputCnpj" style="font-size: 12px; height: 33px;" class="form-control" title="Cnpj" placeholder="">
+                                    </div>
+
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-md-2">
+                                        <label class="mb-0" style="font-size: 12px; height: 33px;">Telefone</label>
+                                        <input type="text" id="inputTelefone" name="inputTelefone" style="font-size: 12px; height: 33px;" class="form-control" title="Telefone" placeholder="">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="mb-0" style="font-size: 12px; height: 33px;">Celular</label>
+                                        <input type="text" id="inputCelular" name="inputCelular" style="font-size: 12px; height: 33px;" class="form-control" title="Celular">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="mb-0" style="font-size: 12px; height: 33px;">Email</label>
+                                        <input type="text" id="inputEmail" name="inputEmail" style="font-size: 12px; height: 33px;" class="form-control" title="Email">
+                                    </div>
+                                    <div class="col-md-2 align-self-end">
+                                        <button type="submit" id="btnAlterar" name="btnAlterar" class="btn btnAlterar btn-sm">Alterar</button>
+                                        <button type="button" id="btnExcluir" name="btnExcluir" class="btn btnE btn-sm" data-toggle="modal" data-target="#confirmacaoExclusaoModal">Excluir</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Modal de confirmação de exclusão -->
+                            <div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmar exclusão</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Tem certeza que deseja excluir?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                            <button type="button" class="btn btn-danger" id="btnConfirmarExclusao">Sim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal de sucesso na exclusao -->
+                            <div class="modal fade" id="sucessoExclusaoModal" class="modal1" tabindex="-1" role="dialog" aria-labelledby="sucessoExclusaoModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="sucessoExclusaoModalLabel">Sucesso na exclusão</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Dados excluidos com sucesso!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 30px;"></div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <input type="text" id="filtro" style="font-size: 12px;" class="form-control" placeholder="Empresa ...">
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-primary" style="font-size: 12px;" id="btnCadastro" type="button"><a class="nav-link" href="cadastro_clientes.html">Novo</a></button>
+                                </div>
+                            </div>
+
+                            <!-- Add a espaço <div>  -->
+                            <div style="margin-top: 20px;"></div>
+                            <!-- ----------------------------------INICIO DOS DADOS NA PAGINA--------------------------------------------->
+                            <div class="form-control">
+                                <div class="table-responsive custom-table-responsive">
+                                    <table class="datatablesSimple" class="table" style="font-size: 11px;">
+                                        <thead>
+                                            <tr class="spacer">
+
+                                                <th scope="col1">Razao Social</th>
+                                                <th scope="col2">CNPJ</th>
+                                                <th scope="col3">Contato</th>
+                                                <th scope="col4">Telefone</th>
+                                                <th scope="col5">Celular</th>
+                                                <th scope="col6">Email</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table-body">
+                                            <!-- Os dados do banco de dados serão carregados aqui dinamicamente -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- ----------------------------------INICIO DOS DADOS DO RODAPÉ DA PAGINA--------------------------------------------->
+                        </div>
+                    </div>
+                </main>
+
+                <div id="rodape"></div>
+            </div>
+        </div>
+        <script>
+
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('rodape.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('rodape').innerHTML = data;
+                    });
+
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('header').innerHTML = data;
+                    });
+
+            // Ao clicar em uma linha da tabela
+            $("#table-body").on("click", "tr", function () {
+                // Obtém os dados da linha clicada
+                var razao = $(this).find("td:eq(0)").text();
+                var cnpj = $(this).find("td:eq(1)").text();
+                var contato = $(this).find("td:eq(2)").text();
+                var telefone = $(this).find("td:eq(3)").text();
+                var celular = $(this).find("td:eq(4)").text();
+                var email = $(this).find("td:eq(5)").text();
+
+                // Preenche os inputs com os dados obtidos
+
+                $("#inputRazao").val(razao);
+                $("#inputCnpj").val(cnpj);
+                $("#inputContato").val(contato);
+                $("#inputTelefone").val(telefone);
+                $("#inputCelular").val(celular);
+                $("#inputEmail").val(email);
+            });
+
+
+
+        </script>         
+
+        <!-- Main JS-->
+        <script src="js/scriptsPedido.js"></script>
+        <script src="js/tabelas.js"></script>
+        <script src="js/excluirCliente.js"></script>
+
+
+    </body>
+</html>

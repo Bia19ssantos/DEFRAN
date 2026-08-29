@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Teste de Salvamento de Orçamento</title>
+    </head>
+    <body>
+        <h1>Teste de Salvamento de Orçamento</h1>
+        <form id="formulario" method="post">
+            <!-- Campos para orcamento -->
+            <label for="numOrc">Número do Orçamento:</label>
+            <input type="text" id="numOrc" name="numOrc" required><br>
+
+            <label for="dataOrc">Data do Orçamento:</label>
+            <input type="date" id="dataOrc" name="dataOrc" required><br>
+
+            <label for="vendedor">Vendedor:</label>
+            <input type="text" id="vendedor" name="vendedor" required><br>
+
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required><br>
+
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" name="cliente" required><br>
+
+            <label for="contato">Contato:</label>
+            <input type="text" id="contato" name="contato" required><br>
+
+            <label for="condPgto">Condição de Pagamento:</label>
+            <input type="text" id="condPgto" name="condPgto" required><br>
+
+            <label for="condTransporte">Condição de Transporte:</label>
+            <input type="text" id="condTransporte" name="condTransporte" required><br>
+
+            <label for="totalOrc">Total do Orçamento:</label>
+            <input type="number" step="0.01" id="totalOrc" name="totalOrc" required><br>
+
+
+            <!-- Campos para os itens do orçamento -->
+            <div class="itens-orcamento">
+                <h2>Itens do Orçamento</h2>
+                <div class="item">
+                    <div class="input-group col-3">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Ref.</span>
+                        <input type="text" id="inputRefProd" style="font-size: 12px; height: 33px;" class="form-control">
+                    </div>
+                    <div class="input-group col-2">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Item</span>
+                        <input type="text" id="inputItem" style="font-size: 12px; height: 33px;" class="form-control" title="Item" placeholder="">
+                    </div>
+                    <div class="input-group col-2">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Qtde</span>
+                        <input type="text" id="inputQtde" style="font-size: 12px; height: 33px;" class="form-control" title="Qtde" placeholder="">
+                    </div>
+                    <div class="input-group col-2">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Preço Unit.</span>
+                        <input type="text" id="inputValorUnit" style="font-size: 12px; height: 33px;" class="form-control" title="Valor Unitario" placeholder="">
+                    </div>
+                    <div class="input-group col-3">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Total</span>
+                        <input type="text" id="inputTotalItem" style="font-size: 12px; height: 33px;" class="form-control" title="Total por Item" placeholder="">
+                    </div>
+                    <p></p>
+                    <div class="input-group col-2">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Ncm</span>
+                        <input type="text" id="inputNcm" style="font-size: 12px; height: 33px;" class="form-control"title="Ncm" placeholder="">
+                    </div>
+                    <div class="input-group col-2">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Un</span>
+                        <input type="text" id="inputTipo" style="font-size: 12px; height: 33px;" class="form-control" title="Tipo" placeholder="">
+                    </div>
+                    <div class="input-group col-5">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Descrição</span>
+                        <input type="text" id="inputDescProd" style="font-size: 12px; height: 33px;" class="form-control" title="DescProd" placeholder="">
+                    </div>
+                    <div class="input-group col-3">
+                        <span class="input-group-text" style="font-size: 12px; height: 33px;">Prazo</span>
+                        <input type="text" id="inputPrazo" style="font-size: 12px; height: 33px;" class="form-control" title="Prazo de Entrega" placeholder="">                    </div>
+                </div>
+            </div>
+            
+            <input type="hidden" id="tipo" name="tipo" value="orcamento">
+
+            <!-- Botão para enviar todo o formulário -->
+            <input type="submit" value="Enviar">
+        </form>
+        <script src="js/testeSalvar.js"></script>
+    </body>
+</html>

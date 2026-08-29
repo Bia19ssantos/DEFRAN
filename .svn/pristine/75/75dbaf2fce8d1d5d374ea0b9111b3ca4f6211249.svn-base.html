@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Inclua o arquivo jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Inclua os arquivos CSS do Bootstrap -->
+
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+
+        <!-- Arquivos CSS -->
+        <link rel="stylesheet" href="css/tableBlack.css">
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link href="css/clientes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/stylePedido.css">
+
+        <style>
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+            .btnBusca{
+                background-color: #9ec5fe; /* Cor de fundo do botão */
+                border: 1px solid #005cbf; /* Remova a borda do botão */
+                padding: 0; /* Remover qualquer preenchimento interno */
+                background: url('assets/icons/lupa.ico') no-repeat center center; /* Definir a imagem como fundo e centralizá-la */
+                background-size: cover; /* Para dimensionar a imagem corretamente */
+                color: #3eb26b; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                width: 40px; /* Largura da imagem */
+                height: 40px; /* Altura da imagem */
+            }
+
+            .btnE{
+                background-color: #ffffff; /* Cor de fundo do botão */
+                background: url('assets/icons/lixoVermelho.png') no-repeat;
+                border: 1px solid #FF0000; /* Remova a borda do botão */
+                padding: 0; /* Remover qualquer preenchimento interno */
+                background-size: 20%; /* Para dimensionar a imagem corretamente */
+                background-position: 5px center; 
+                padding-right: 15px; /* Ajuste o espaço à esquerda do texto */
+                text-align: right;
+                color: red; /* Cor do texto no botão */
+                cursor: pointer;
+                width: 80px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+                transition: opacity 0.3s ease; /* Adicionar transição suave para a propriedade opacity */
+            }
+
+            .btnE:hover {
+                background: url('assets/icons/lixoBranco.png') no-repeat; /* Definir a imagem como fundo e centralizá-la */
+                background-color: #FF0000;
+                background-size: 20%; /* Para dimensionar a imagem corretamente */
+                background-position: 5px center; 
+                padding-right: 15px; /* Ajuste o espaço à esquerda do texto */
+                text-align: right;
+                color: white;
+                border: 1px solid #FF0000;
+                width: 80px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+            .iconeB{
+                width: 15px; /* Largura da imagem */
+                height: 15px; /* Altura da imagem */
+            }
+            .iconeE{
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+            }
+        </style>
+
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="header"></div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="card-header">
+                                <div class="p-3 mb-2 bg-primary text-white" style="width: 1300px; height: 40px;">Defran - Orçamentos Enviados</div>
+                            </div>
+                            <div style="margin-top: 20px;"></div>
+                            <div class="col-sm-8" style="margin-left: 1000px;">
+                                <button type="button" id="btnExcluir" name="btnExcluir" class="btn btnE btn-sm" data-toggle="modal" data-target="#confirmacaoExclusaoModal">
+                                    Excluir 
+                                </button>
+                            </div>
+                        </div>
+                         <div class="form-group row" style="margin-left: 10px;">
+                                <label class="col-sm-2 col-form-label" style="font-size: 12px;">PESQUISAR<span class="text-danger"> *</span></label>
+                                <div class="col-sm-2" style="margin-left: -80px;">
+                                    <input type="text" id="filtro" class="form-control" style="font-size: 12px; height: 33px;" placeholder="">
+                                </div>
+
+                            </div>
+
+                        <!-- Modal de confirmação de exclusão -->
+                        <div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmar exclusão</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza que deseja excluir?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                        <button type="button" class="btn btn-danger" id="btnConfirmarExclusao">Sim</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal de confirmação de exclusão -->
+                        <div class="modal fade" id="sucessoExclusaoModal" class="modal1" tabindex="-1" role="dialog" aria-labelledby="sucessoExclusaoModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="sucessoExclusaoModalLabel">Sucesso na exclusão</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Dados excluidos com sucesso!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add a espaço <div>  -->
+                        <div style="margin-top: 20px;"></div>
+
+                        <!-- ------------------------- ------------------------------------------------------------------------------------ -->
+                        <div class="wrapper wrapper--w890" style="max-width: 1800px;">
+                            <form class="form-card">
+                                <div class="form-group">
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <!-- Primeira Linha -->
+                                            <div class="row row-space">
+                                                <div class="col-md-8">
+                                                    <label class="mb-0" style="font-size: 12px;">Empresa</label>
+                                                    <input type="text" id="inputCliente" name="inputCliente" style="font-size: 12px; height: 33px;" class="form-control" title="Cliente" placeholder="">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Data</label>
+                                                    <input class="form-control" type="text" style="font-size: 12px; height: 33px;" name="inputDataOrc" id="inputDataOrc" title="Data do Orçamento" placeholder="">
+                                                </div>
+                                            </div>
+                                            <p></p>
+
+                                            <!-- Segunda Linha -->
+                                            <div class="row row-space">
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Vendedor(a)</label>
+                                                    <input type="text" id="inputVendedor" name="inputVendedor" style="font-size: 12px; height: 33px;" class="form-control" title="Vendedor" placeholder="">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Condição de Pagamento</label>
+                                                    <input type="text" id="inputPagamento" name="inputPagamento" style="font-size: 12px; height: 33px;" class="form-control" title="Pagamento">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Condição de Transporte</label>
+                                                    <input type="text" id="inputTransporte" name="inputTransporte" style="font-size: 12px; height: 33px;" class="form-control" title="Transporte" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <!-- Add a espaço <div>  -->
+                        <div style="margin-top: 20px;"></div>
+                        <!-- ----------------------------------INICIO DOS DADOS NA PAGINA--------------------------------------------->
+                        <div class="wrapper wrapper--w890" style="max-width: 1800px;">
+                            <form class="form-card">
+                                <!-- Tabela de Itens do Orçamento-->
+                                <div class="form-control">
+                                    <div class="table-responsive custom-table-responsive">
+                                        <table class="table table-striped" id="itensTable">
+                                            <thead>
+                                                <tr style="background-color: #3666a8;">
+                                                    <th scope="col" style="font-size: 10px;">NumOrc</th>
+                                                    <th scope="col" style="font-size: 10px;">Item</th>
+                                                    <th scope="col" style="font-size: 10px;">Referencia</th>
+                                                    <th scope="col" style="font-size: 10px;">Qtde</th>
+                                                    <th scope="col" style="font-size: 10px;">Valor Unit.</th>
+                                                    <th scope="col" style="font-size: 10px;">Total Item</th>
+                                                    <th scope="col" style="font-size: 10px;">Prazo de Entrega</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table-itens">
+                                                <!-- linhas de dados aqui -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;"></div>
+
+                                <div class="form-group">
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <!-- Tabela de Itens da Linga-->
+                                            <div class="form-control">
+                                                <div class="table-responsive custom-table-responsive">
+                                                    <table class="table table-striped" id="itensLinga">
+                                                        <thead>
+                                                            <tr style="background-color: #000000;">
+                                                                <th scope="col" style="font-size: 10px;">Modelo da Linga</th>
+                                                                <th scope="col" style="font-size: 10px;">Ref.Item</th>
+                                                                <th scope="col" style="font-size: 10px;">Qtde</th>
+                                                                <th scope="col" style="font-size: 10px;">Valor Unit.</th>
+                                                                <th scope="col" style="font-size: 10px;">Total Item</th>
+                                                                <th scope="col" style="font-size: 10px;">Qtde Elos</th>
+                                                                <th scope="col" style="font-size: 10px;">Qtde Metros</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="table-linga">
+                                                            <!-- linhas de dados aqui -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- ----------------------------------INICIO DOS DADOS DO RODAPÉ DA PAGINA--------------------------------------------->
+                    </div>
+                </main>
+
+                <div id="rodape"></div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+                fetch('rodape.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('rodape').innerHTML = data;
+                        });
+                // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+                fetch('header.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('header').innerHTML = data;
+                        });
+            });
+        </script>
+        <!-- Arquivos JS-->
+        <script src="js/scriptsPedido.js"></script>
+        <script src="js/orcamentos.js"></script>
+
+    </body>
+</html>

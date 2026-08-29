@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html style="font-size: 16px;" lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <!-- Title Page--->
+        <title>Defran - Produtos para Elevação de Cargas</title>
+
+        <link rel="stylesheet" href="css/nicepage.css" media="screen">
+        <link rel="stylesheet" href="css/paginaPdf.css" media="screen">
+        <script class="u-script" type="text/javascript" src="js/jquery-1.9.1.min.js" defer=""></script>
+        <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
+        <meta name="generator" content="Nicepage 5.20.7, nicepage.com">
+        <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+        <!-- Inclua o arquivo jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+
+            .table th:nth-child(1),
+            .table td:nth-child(1) {
+                width: 30px; /* Ajuste a largura conforme necessário */
+            }
+
+            .table th:nth-child(2),
+            .table td:nth-child(2) {
+                width: 100px; /* Ajuste a largura conforme necessário */
+            }
+            .table th:nth-child(3),
+            .table td:nth-child(3) {
+                width: 300px; /* Ajuste a largura conforme necessário */
+            }
+            .table th:nth-child(5),
+            .table td:nth-child(5) {
+                width: 30px; /* Ajuste a largura conforme necessário */
+            }
+
+            .table th:nth-child(6),
+            .table td:nth-child(6) {
+                width: 30px; /* Ajuste a largura conforme necessário */
+            }
+
+
+            @media print {
+                .table-header {
+                    display: table-row;
+                }
+            } 
+            @media print {
+                thead {
+                    display: table-header-group;
+                }
+            }
+            @media print {
+                .table th {
+                    color: #000;
+                    background-color: #CCCCCC;
+                }
+            }
+            .inputSemBorda {
+                border: none; /* Remove a borda */
+                padding: 5px; /* Adiciona algum espaço interno para melhor aparência */
+                background-color: #ffffff; /* Define a cor de fundo */
+                color: black; /* Define a cor do texto */
+                font-size: 16px; /* Define o tamanho da fonte */
+            }
+            .logoDefran {
+                width: 310px; /* ajuste o tamanho máximo conforme necessário */
+                height: 150px; /* ajuste o tamanho máximo conforme necessário */
+                margin-left: 10px;
+            }
+
+            .logoGunnebo {
+                width: 200px; /* ajuste o tamanho máximo conforme necessário */
+                height: 80px; /* ajuste o tamanho máximo conforme necessário */
+            }
+            .logos-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .inputVazio{
+                border: none;
+                color: #000;
+                width: 400px;
+                text-align: right;
+            }
+            .table td{
+                font-size: 12px;
+            }
+
+            .table th{
+                text-align: center; 
+                font-weight: bold; 
+                font-size: 10px; 
+                border: 1px solid gray;
+                color: #000;
+                background-color: #CCCCCC;
+            }
+            .table tr{
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="pt">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <div class="logos-container">
+                <img src="assets/img/logoDefran.jpg" class="logoDefran" alt="logo Defran">            
+                <img class="logoGunnebo" src="assets/img/KitoCrosbyGunn.png" alt="logo Gunnebo">
+            </div>
+            <div>
+                <h4 style="text-align: right;"><b>PROPOSTA COMERCIAL</b></h4>
+            </div>
+            <div style="text-align: right;">
+                <span id="dataOrc" style="text-align: right; width: 300px; border: none;"></span>
+            </div>
+
+            <div>
+                <span class="u-text u-text-4"><b>PROPOSTA Nº:</b></span>
+                <input type="text" id="numOrc" style="font-size: 18px; text-align: right; width: 80px; border: none;" placeholder="">
+            </div>
+            <div style="text-align: right;">
+                <span class="u-text u-text-4"><b>VENDEDOR(A):</b></span>
+                <input type="text" id="vendedor" style="text-align: left; width: 150px; border: none;" placeholder="">
+            </div>
+        </div>
+
+        <section class="u-clearfix u-section-1" id="sec-10fa">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <div class="border border-secondary u-container-style u-expanded-width u-group u-shape-rectangle u-group-1">
+                    <div class="card-body">
+                        <div class="row row-space py-8">
+                            <div class="col-8">
+                                <div class="input-group">
+                                    <span class="inputSemBorda" style="font-size: 18px; height: 33px;"><b>Cliente:</b></span>
+                                    <input type="text" id="cliente" class="inputSemBorda form-control" style="font-size: 16px; height: 33px;" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <span class="inputSemBorda" style="font-size: 18px; height: 33px;"><b>CNPJ:</b></span>
+                                    <input type="text" id="cnpj" class="inputSemBorda form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="row row-space py-8">
+                            <div class="col-4">
+                                <div class="input-group">
+                                    <span class="inputSemBorda" style="font-size: 18px; height: 33px;"><b>Telefone:</b></span>
+                                    <input type="text" id="telefone" class="inputSemBorda form-control" style="font-size: 16px; height: 33px;" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="input-group">
+                                    <span class="inputSemBorda" style="font-size: 18px; height: 33px;"><b>Email:</b></span>
+                                    <input type="text" id="email" class="inputSemBorda form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="input-group">
+                                    <span class="inputSemBorda" style="font-size: 18px; height: 33px;"><b>Contato:</b></span>
+                                    <input type="text" id="contato" class="inputSemBorda form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <p></p>
+        <section class="u-align-center u-clearfix u-section-2" id="sec-c606">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <p class="u-text u-text-default u-text-1"> <b>Conforme Vossa solicitação, enviamos abaixo preço e demais condições de fornecimento 
+                        para o(s) item (ns) abaixo: </b></p>
+                <p></p>
+                <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                    <table class="table table-striped" id="tabelaPdf">
+                        <thead>
+                            <tr class="table-header" style="background-color: #CCCCCC">
+                                <th scope="col">ITEM</th>
+                                <th scope="col">REFERENCIA</th>
+                                <th scope="col">DESCRIÇÃO</th>
+                                <th scope="col">NCM</th>
+                                <th scope="col">TIPO</th>
+                                <th scope="col">QTDE</th>
+                                <th scope="col">VAL.UNIT.</th>
+                                <th scope="col">TOTAL</th>
+                                <th scope="col">PRAZO DE ENTREGA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- linhas de dados aqui -->
+                        </tbody>
+                    </table>
+                </div>
+                <p class="u-text u-text-default u-text-1"><b>OBS.:</b>
+                    <input type="text" id="obs" style=" width: 300px; border: none;" placeholder=""></p>
+            </div>
+        </section>
+        <section class="u-align-left u-clearfix u-section-3">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <p class="u-align-center u-custom-font u-font-arial u-text u-text-default u-text-1" style="text-align: center"><b>“TODOS OS IMPOSTOS INCLUSOS”&nbsp;<br>“FORNECIDO COM CERTIFICADO DE QUALIDADE” 
+                    </b></p>
+            </div>
+        </section>
+        <p style="margin-top: 40px;"></p>
+        <div>
+            <div style="text-align: left;">
+                <p class="u-align-left u-text u-text-default u-text-3"><b>CONDIÇÕES COMERCIAIS:</b></p>
+                <p class="u-align-left u-text u-text-default u-text-3">
+                    <b>Condição de Pagamento:</b>&nbsp;<span style="font-weight: 700;"></span>
+                    <input type="text" id="pgto" style="text-align: left; width: 100px; border: none;" placeholder="">
+                    <br><b>Condição de Entrega:</b>&nbsp;
+                    <input type="text" id="transporte" style="text-align: left; width: 600px; border: none;" placeholder="">
+                    <br><b>Validade da Proposta:</b>
+                    <input type="text" id="valProposta" style="text-align: left; width: 100px; border: none;" value=" 10 dias">
+                <p style="font-size: 14px;">Material sujeito à venda sem prévio aviso</p>
+            </div>
+            <div style="text-align: center; margin-left: 610px;">
+                <p class="u-align-center u-text u-text-default u-text-3" style="font-size: 14px;"><b>Roberto Versiani</b>&nbsp;
+                    <br><b>Departamento de Vendas</b>&nbsp;
+                    <br><b>Tel.: (15) 3262-4134 – Cel. (15) 98114-7575</b>&nbsp;
+                    <br><b>Email: defran@defran.com.br</b>
+                </p>
+            </div>
+        </div>
+        <section class="u-clearfix u-section-4" id="sec-ec8e">
+            <div class="u-clearfix u-sheet u-sheet-1"></div>
+        </section>
+
+    </body>
+</html>

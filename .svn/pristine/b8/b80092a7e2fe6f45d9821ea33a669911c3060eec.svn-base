@@ -1,0 +1,35 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configurações do Hibernate, como conexão com o banco de dados, etc. -->
+        <!-- Exemplo de configuração da conexão com o banco MySQL -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/defran</property>
+        <property name="hibernate.connection.username">defran</property>
+        <property name="hibernate.connection.password">defran</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+       
+        <mapping class="br.com.jcomputacao.defran.model.Clientes"/>
+        <mapping class="br.com.jcomputacao.defran.model.ProdutoGunnebo"/>
+        <mapping class="br.com.jcomputacao.defran.model.EstoqueGunnebo"/>
+        <mapping class="br.com.jcomputacao.defran.model.EstoqueDefran"/>
+        <mapping class="br.com.jcomputacao.defran.model.ProdutoPewag"/>
+        <mapping class="br.com.jcomputacao.defran.model.ProdutoSpanset"/>
+        <mapping class="br.com.jcomputacao.defran.model.ProdutoCrosby"/>
+        <mapping class="br.com.jcomputacao.defran.model.ManilhasCrosby"/>
+        <mapping class="br.com.jcomputacao.defran.model.Vendas"/>
+        <mapping class="br.com.jcomputacao.defran.model.Orcamento"/>
+        <mapping class="br.com.jcomputacao.defran.model.Vendas"/>
+        <mapping class="br.com.jcomputacao.defran.model.OrcLingas"/>
+        <mapping class="br.com.jcomputacao.defran.model.ItensOrcamentos"/>
+        <mapping class="br.com.jcomputacao.defran.model.Usuarios"/>
+        <mapping class="br.com.jcomputacao.defran.model.ModelosLingas"/>
+        <mapping class="br.com.jcomputacao.defran.model.ItensPedido"/>
+        
+    </session-factory>
+
+</hibernate-configuration>
+

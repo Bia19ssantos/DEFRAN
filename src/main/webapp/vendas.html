@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Beatriz">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+        <link rel="stylesheet" href="css/design.css">
+        <link rel="stylesheet" href="css/modal.css">
+        <link rel="stylesheet" href="css/stylePedido.css">
+
+        <!-- Inclua o arquivo jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.71/vfs_fonts.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+        <!-- Inclua os arquivos CSS do Bootstrap -->
+
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <style>
+            /* Seletor CSS para a imagem */
+            img {
+                width: 120px; /* Define a largura da imagem em pixels */
+                height: auto; /* Mantém a proporção original da imagem */
+            }
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+            .btnSalve {
+                display: flex;
+                align-items: center; /* Centraliza verticalmente */
+                background-color: #ffffff; /* Cor de fundo do botão */
+                border: 1px solid #004085 ;
+                padding: 5px; /* Espaçamento interno do botão */
+                color: #004085; /* Cor do texto no botão */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin-left: 1000px; /* Ajuste conforme necessário */
+                margin-top: 30px; /* Ajuste conforme necessário */
+            }
+
+            .btnSalve:hover {
+                background-color: #adcce9;
+                color: #002752;
+                border: 1px solid blue;
+            }
+
+            .btnSalve img {
+                width: 20px; /* Largura da imagem */
+                height: 20px; /* Altura da imagem */
+                margin-right: 5px; /* Espaçamento à direita da imagem */
+            }
+
+            .btnSair{
+                background-color: red;
+                color: white;
+                width: 30px;
+                height: 30px; 
+            }
+
+            .btnSair:hover {
+                background-color: white;
+                color: red;
+                width: 30px;
+                height: 30px;
+                border: 1px solid red;
+            }
+            .btnE{
+                background-color: #ffffff; /* Cor de fundo do botão */
+                background: url('assets/icons/lixoVermelho.png') no-repeat;
+                border: 1px solid #FF0000; /* Remova a borda do botão */
+                padding: 0; /* Remover qualquer preenchimento interno */
+                background-size: 20%; /* Para dimensionar a imagem corretamente */
+                background-position: 5px center; 
+                padding-right: 15px; /* Ajuste o espaço à esquerda do texto */
+                text-align: right;
+                color: red; /* Cor do texto no botão */
+                cursor: pointer;
+                width: 80px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+                transition: opacity 0.3s ease; /* Adicionar transição suave para a propriedade opacity */
+            }
+
+            .btnE:hover {
+                background: url('assets/icons/lixoBranco.png') no-repeat; /* Definir a imagem como fundo e centralizá-la */
+                background-color: #FF0000;
+                background-size: 20%; /* Para dimensionar a imagem corretamente */
+                background-position: 5px center; 
+                padding-right: 15px; /* Ajuste o espaço à esquerda do texto */
+                text-align: right;
+                color: white;
+                border: 1px solid #FF0000;
+                width: 80px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><img class="iconEstoque" src="assets/icons/left.gif" alt="Icone SETA"></i></button>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="header"></div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="card-header">
+                                <div class="p-3 mb-2 bg-primary text-white" style="width: 1300px; height: 40px;">Defran - Pedidos Recebidos</div>
+                            </div>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-md-4 offset-md-8" style="margin-left: 950px;">
+                                    <button type="button" id="btnBuscaT" name="btnBuscaT" class="btn btn-primary btn-sm">Consultar Todos</button>
+                                    <button type="button" id="btnSair" name="btnSair" class="btn btnSair btn-sm"> x </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px;"></div>
+                        <div class="form-group row"  style="margin-left: 20px;">
+                            <div class="col-sm-8" style="margin-left: 980px;">
+                                <button type="button" id="btnExcluir" name="btnExcluir" class="btn btnE btn-sm" data-toggle="modal" data-target="#confirmacaoExclusaoModal">
+                                    Excluir 
+                                </button>
+                            </div>
+                            <label class="col-sm-2 col-form-label" style="font-size: 12px;">PESQUISAR<span class="text-danger"> *</span></label>
+                            <div class="col-sm-2" style="margin-left: -100px;">
+                                <input type="text" id="filtro" class="form-control" style="font-size: 12px; height: 33px;" placeholder="">
+                            </div>
+                        </div>
+                        <!-- Modal de confirmação de exclusão -->
+                        <div class="modal fade" id="confirmacaoExclusaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacaoExclusaoModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmacaoExclusaoModalLabel">Confirmar exclusão</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza que deseja excluir?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                        <button type="button" class="btn btn-danger" id="btnConfirmarExclusao">Sim</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal de confirmação de exclusão -->
+                        <div class="modal fade" id="sucessoExcluirModal" class="modal1" tabindex="-1" role="dialog" aria-labelledby="sucessoExcluirModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="sucessoExcluirModalLabel">Sucesso na exclusão</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Os dados do Pedido foram excluidos com sucesso!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wrapper wrapper--w890" style="max-width: 1800px;">
+                            <form class="form-card">
+                                <div class="form-group">
+                                    <div class="card-body">
+                                        <div class="container">
+                                            <!-- Primeira Linha -->
+                                            <div class="row row-space">
+                                                <div class="col-md-6">
+                                                    <label class="mb-0" style="font-size: 12px;">Empresa</label>
+                                                    <input type="text" id="inputCliente" name="inputCliente" style="font-size: 12px; height: 33px;" class="form-control" title="Cliente" placeholder="">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Data do Pedido</label>
+                                                    <input class="form-control" type="text" style="font-size: 12px; height: 33px;" name="inputDataPedido" id="inputDataPedido" title="Data do Pedido" placeholder="">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <label class="mb-0" style="font-size: 12px;">Num. Orç</label>
+                                                    <input class="form-control" type="text" style="font-size: 12px; height: 33px;" name="inputNumOrc" id="inputNumOrc" title="Num. Orc" placeholder="">
+                                                </div>
+                                            </div>
+                                            <p></p>
+
+                                            <!-- Segunda Linha -->
+                                            <div class="row row-space">
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Data NF</label>
+                                                    <input type="text" id="inputDataNF" name="inputDataNF" style="font-size: 12px; height: 33px;" class="form-control" title="Vendedor" placeholder="">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Num. NF</label>
+                                                    <input type="text" id="inputNF" name="inputNF" style="font-size: 12px; height: 33px;" class="form-control" title="Pagamento">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="mb-0" style="font-size: 12px;">Total do Pedido</label>
+                                                    <input type="text" id="inputTotalPedido" name="inputTotalPedido" style="font-size: 12px; height: 33px;" class="form-control" title="Transporte" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <!-- Add a espaço <div>  -->
+                        <div style="margin-top: 20px;"></div>
+
+                        <div class="card-body">
+                            <div class="container">
+                                <!-- Tabela de Itens da Linga-->
+                                <div class="form-control">
+                                    <div class="table-responsive custom-table-responsive">
+                                        <table class="table table-striped" id="pedidos">
+                                            <thead>
+                                                <tr style="background-color: #000000;">
+                                                    <th scope="col" style="font-size: 10px;">Num. Pedido</th>
+                                                    <th scope="col" style="font-size: 10px;">Item</th>
+                                                    <th scope="col" style="font-size: 10px;">Ref.Item</th>
+                                                    <th scope="col" style="font-size: 10px;">Tipo</th>
+                                                    <th scope="col" style="font-size: 10px;">Qtde</th>
+                                                    <th scope="col" style="font-size: 10px;">Valor Unit.</th>
+                                                    <th scope="col" style="font-size: 10px;">Total Item</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table-pedido">
+                                                <!-- linhas de dados aqui -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add a espaço <div>  -->
+                        <div style="margin-top: 20px;"></div>
+                </main>
+
+                <div id="rodape"></div>
+            </div>
+        </div>
+        <script>
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('rodape.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('rodape').innerHTML = data;
+                    });
+
+            // Use fetch para carregar o conteúdo do header.html na div com id 'header'
+            fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('header').innerHTML = data;
+                    });
+
+            // Adiciona um ouvinte de clique ao botão
+            document.getElementById("btnBuscaT").addEventListener("click", function () {
+                // Redireciona para a página orcamentos.html
+                window.location.href = "pedidos.html";
+            });
+
+            // Quando o documento estiver pronto
+            $(document).ready(function () {
+                // Ao clicar em btnSave
+                $("#btnSair").click(function () {
+                    // Redireciona para a página orcamentos.html
+                    window.location.href = "cadastro_vendas.html";
+                });
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+
+        <!-- java Script Local-->
+        <script src="vendor/select2/select2.min.js"></script>
+        <script src="vendor/datepicker/moment.min.js"></script>
+        <script src="js/scriptsPedido.js"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="js/pedidos.js"></script>
+
+    </body>
+</html>

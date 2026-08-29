@@ -1,0 +1,38 @@
+/* 
+Trocando a chave da tabale orcamento
+ */
+/**
+ * Author:  thiago
+ * Created: 16/09/2023
+ */
+
+
+
+ALTER TABLE `defran`.`orcamentos` 
+CHANGE COLUMN `id` `id` INT(11) NOT NULL AUTO_INCREMENT ,
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`id`),
+ADD UNIQUE INDEX `id_UNIQUE` (`id` ASC);
+;
+
+create table usuarios(
+id int AUTO_INCREMENT primary Key,
+nome VARCHAR(100),
+usuario VARCHAR(50),
+senha varchar(20),
+redefinir_senha varchar(20),
+ativo BOOLEAN DEFAULT TRUE
+);
+
+-- Importar dados para a tabela 
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.1/Uploads/estoque_gunnebo.csv'
+INTO TABLE estoque_gunnebo
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n';
+
+-- Restaurar banco de dados comando: 
+-- mysql -u root -p defran < C:\Users\beatr\OneDrive\Documentos\bkp\bkpDefran-21-11.sql
+
+-- Fazer Backup no banco de dados: 
+-- mysqldump -u root -p --routines=true --triggers --flush-logs --lock-tables=false defran > C:\Users\beatr\OneDrive\Documentos\bkp\bkpDefran-21-11.sql

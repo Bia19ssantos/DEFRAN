@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- BEATRIZ -->
+<html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Beatriz">
+        <meta name="author" content="Beatriz">
+        <meta name="keywords" content="JCOMPUTACAO">
+
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link href="css/stylePedido.css" rel="stylesheet" />
+
+        <style>
+            .iconEstoque{
+                width: 30px; /* Largura da imagem */
+                height: 30px; /* Altura da imagem */
+            }
+        </style>
+
+        <!-- Title Page-->
+        <title>Defran - Produtos para Movimentação de Cargas</title>
+
+    </head>
+
+    <body>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <style>
+                /* Seletor CSS para a imagem */
+                img {
+                    width: 80px; /* Define a largura da imagem em pixels */
+                    height: auto; /* Mantém a proporção original da imagem */
+                }
+                .gif-usuario{
+                    width: 50px; /* Largura da imagem */
+                    height: 50px; /* Altura da imagem */
+                }
+
+            </style>
+            <a class="navbar-brand ps-3" href="index.html"><img src="assets/img/navbar-logo.png" alt="Descrição da Imagem"></a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Configurações</a></li>
+                        <li><a class="dropdown-item" href="#!">Logs</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav" style="margin-top: 40px;">
+                            <a class="nav-link collapsed" href="cadastrar" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/menu2.ico" alt="Icone Menu"></i></div>
+                                Menu Principal
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesCadastrar">
+                                    <a class="nav-link collapsed" href="Cadastrar" data-bs-toggle="collapse" data-bs-target="#pagesCollapseCadastrar" aria-expanded="false" aria-controls="pagesCollapseCadastrar">
+                                        Cadastrar
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseCadastrar" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPagesCadastrar">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="cadastro_clientes.html">Clientes</a>
+                                            <a class="nav-link" href="cadastro_orcamentos.html">Orcamentos</a>
+                                            <a class="nav-link" href="cadastro_vendas.html">Vendas</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesConsultas">
+                                    <a class="nav-link collapsed" href="collapse" data-bs-toggle="collapse" data-bs-target="#pagesCollapseConsultas" aria-expanded="false" aria-controls="pagesCollapseConsultas">
+                                        Consultas
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseConsultas" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPagesConsultas">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="clientes.html">Clientes</a>
+                                            <a class="nav-link" href="orcamentos.html">Orcamentos</a>
+                                            <a class="nav-link" href="cadastro_vendas.html">Vendas</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPagesCatalogos">
+                                    <a class="nav-link collapsed" href="collapse" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                        Catálogos
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPagesCatalogos">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="catalogo_gunnebo.html">Gunnebo</a>
+                                            <a class="nav-link" href="catalogo_crosby.html">Crosby</a>
+                                            <a class="nav-link" href="catalogo_pewag8.html">Pewag Grau 8</a>
+                                            <a class="nav-link" href="catalogo_pewag10.html">Pewag Grau 10</a>
+                                            <a class="nav-link" href="catalogo_rud.html">Rud</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+
+
+                                <div class="sb-sidenav-menu-heading">Consultas</div>
+                                <a class="nav-link" href="est_gunnebo.html">
+                                    <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/estoque.png" alt="Icone Estoque"></div>
+                                    Estoque Gunnebo
+                                </a>
+                                <a class="nav-link" href="est_defran.html">
+                                    <div class="sb-nav-link-icon"><img class="iconEstoque" src="assets/icons/iconEstoque.png" alt="Icone Estoque"></div>
+                                    Estoque Defran
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Bem Vindo ao Sistema da Defran
+                    </div>
+                </nav>
+            </div>
+            <!-------------------------------FIM DO MENU PRINCIPAL ------------------------------------------------------ -->
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+                        <div class="card mb-4">
+
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-7">
+                                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                            <div class="card-header"><h3 class="text-center font-weight-light my-4"><img src="assets/icons/usuario.gif" alt="usuario" class="gif-usuario">
+                                                    Criar Conta</h3></div>
+                                            <div class="card-body">
+                                                <form id="formUsuario" method="POST" action="CadastroUsuarioServlet">
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" name="inputNome" id="inputNome" type="text" placeholder="Digite o seu nome" />
+                                                        <label for="inputNome">Nome</label>
+                                                    </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input class="form-control" id="inputUsuario" name="inputUsuario" type="usuario" placeholder="joaocarlos123" />
+                                                        <label for="inputUsuario">Usuario</label>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating mb-3 mb-md-0">
+                                                                <input class="form-control" id="inputSenha" name="inputSenha" type="password" placeholder="senha" />
+                                                                <label for="inputSenha">Senha</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating mb-3 mb-md-0">
+                                                                <input class="form-control" id="inputConfirmarSenha" name="inputConfirmarSenha" type="password" placeholder="confirmar a senha" />
+                                                                <label for="inputConfirmarSenha">Confirmar Senha</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-4 mb-0">
+                                                        <div class="d-grid"><button type="submit" id="btnEnviar" class="btn btn-primary" >Criar conta</button></div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="card-footer text-center py-3">
+                                                <div class="small"><a href="login.html">Já possui conta? Fazer login</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Defran 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Termos &amp; Condições</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                // Obtém uma referência para o botão btnEnviar
+                var btnEnviar = document.getElementById("btnEnviar");
+
+                // Adiciona um ouvinte de clique ao botão
+                btnEnviar.addEventListener("click", function () {
+                    // Verifica se há um parâmetro de sucesso na URL
+                    const cadastroSucesso = new URLSearchParams(window.location.search).get("cadastroSucesso");
+
+                    if (cadastroSucesso === "true") {
+                        $('#modalSucesso').modal('show');
+                    } else {
+                        $('#modalErro').modal('show');
+                    }
+                });
+
+
+                // Obtém uma referência para o botão btnOK dentro do modal de sucesso
+                var btnOK = document.getElementById("btnOK");
+
+                // Adiciona um ouvinte de clique ao botão
+                btnOK.addEventListener("click", function () {
+                    // Redireciona para a página de login
+                    window.location.href = "login.html";
+                });
+            });
+        </script>
+
+        <!-- Jquery JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scriptsPedido.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+
+
+    </body>
+</html>

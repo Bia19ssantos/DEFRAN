@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/08/2023, 14:45:06
+    Author     : DEFRAN-4
+*/
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Combine adjacent table borders */
+}
+
+th, td {
+    border: 1px solid white; /* Add a white border to table cells */
+    padding: 8px; /* Add padding to the cells for better spacing */
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+/* Optional: Style for alternating row colors */
+tr:nth-child(even) {
+    background-color: #d7d7d7;
+}
+
